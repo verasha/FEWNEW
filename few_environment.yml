@@ -1,4 +1,4 @@
-name: few
+name: fewnew
 channels:
   - conda-forge
   - defaults
