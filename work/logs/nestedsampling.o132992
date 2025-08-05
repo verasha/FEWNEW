@@ -1,0 +1,19 @@
+Direct write is requested for job: 132992.stdct-mgmt-02, but the destination is not usecp-able from gn-a40-004.stdct.loc
+/var/spool/pbs/mom_priv/jobs/132992.stdct-mgmt-02.SC: line 19: 2378424 Killed                  python -u nestedsampling_debug.py > stdout.$PBS_JOBID 2> stderr.$PBS_JOBID
+Job completed at Fri Aug  1 04:20:26 PM +08 2025
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			Resource Usage on 2025-08-01 16:20:27.086602:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	JobId: 132992.stdct-mgmt-02
+	Project: personal-e1498138
+	Exit Status: 0
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	NCPUs: Requested(32), Used(32)
+	CPU Time Used: 00:02:04
+	Memory: Requested(240gb), Used(262228kb)
+	Vmem Used: 19107116kb
+	Walltime: Requested(01:00:00), Used(00:02:47)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Execution Nodes Used: (GN-A40-004[1]:ngpus=1)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	No GPU-related information available for this job.

@@ -116,6 +116,7 @@ class GravWaveAnalysis:
     def freq_wave(self, wave):
         """
         Compute the frequency domain representation of a waveform.
+        Zero-pads to data length before FFT.
 
         Parameters:
         wave (numpy.ndarray): Time domain waveform.
@@ -141,7 +142,7 @@ class GravWaveAnalysis:
         df = 1/(self.N*self.dt)  # Frequency resolution
         
         # Get sensitivity 
-        Sn = get_sensitivity(self. fft_freqs[1:], sens_fn=LISASens, return_type="PSD")
+        Sn = get_sensitivity(self.fft_freqs[1:], sens_fn=LISASens, return_type="PSD")
         
         # Compute the inner product using backend operations
         plus = self.xp.conj(h1f[0,1:]) @ (h2f[0,1:] / Sn)
@@ -181,7 +182,7 @@ class GravWaveAnalysis:
       For the f function
     """
 
-    def Xstat(x, h):
+    def Xstat(self, x, h):
         """
         Compute the standard detection statistic for gravitational wave data.
         """
@@ -194,7 +195,7 @@ class GravWaveAnalysis:
 
         return calc_inner / calc_SNR
 
-    def Xmstat(x, hm_arr, rho_modes):
+    def Xmstat(self, x, hm_arr, rho_modes):
         """
         Calculate X_m statistic for each mode
         """
@@ -215,7 +216,7 @@ class GravWaveAnalysis:
         
         return X_modes
 
-    def rhostat(h):
+    def rhostat(self, h):
         # optimal SNR 
         # assuming the h is still in time-domain
         
@@ -223,17 +224,17 @@ class GravWaveAnalysis:
         calc_inner = self.inner(hf, hf)
         return self.xp.sqrt(calc_inner) 
     
-    def rhostat_modes(hm_arr): 
+    def rhostat_modes(self, hm_arr): 
         rho_modes = self.xp.empty(len(hm_arr), dtype=self.xp.float64)
 
         for idx, hm in enumerate(hm_arr):
-            rho_modes[idx] = rhostat(hm)
+            rho_modes[idx] = self.rhostat(hm)
         
         return self.xp.array(rho_modes)
     
-    def chi_sq(X_theta, rho_theta):
+    def chi_sq(self, X_theta, rho_theta):
         """
         Calculate chi square statistic
         """
         diff = X_theta - rho_theta
-        return gwf.xp.abs(diff)**2
+        return self.xp.linalg.norm(diff)**2

@@ -23,11 +23,11 @@ from few.utils.geodesic import get_fundamental_frequencies
 import os
 import sys
 
-# Change to the desired directory
-os.chdir('/nfs/home/svu/e1498138/localgit/FEWNEW/work/')
+# # Change to the desired directory
+# os.chdir('/nfs/home/svu/e1498138/localgit/FEWNEW/work/')
 
-# Add it to Python path
-sys.path.insert(0, '/nfs/home/svu/e1498138/localgit/FEWNEW/work/')
+# # Add it to Python path
+# sys.path.insert(0, '/nfs/home/svu/e1498138/localgit/FEWNEW/work/')
 
 import GWfuncs
 # import gc
@@ -44,7 +44,7 @@ import dynesty
 use_gpu = True
 dist = 1.0  # Distance in Gpc
 dt = 10     # Time step
-T = 1.0     # Total time
+T = 0.1     # Total time
 
 # Check GPU availability
 if not cuda.is_available():
@@ -92,10 +92,10 @@ def f_statistic_kernel(X_scalar, beta, chi_sq, f_stat_out):
         f_stat_out[idx] = X_scalar * math.exp(f_exp)
 
 # Initialize missing objects needed for the analysis
-traj = EMRIInspiral(func="KerrEccEqFlux", use_gpu=use_gpu)
-amp = AmpInterpKerrEccEq(use_gpu=use_gpu)
-ylm_gen = GetYlms(use_gpu=use_gpu)
-interpolate_mode_sum = InterpolatedModeSum(use_gpu=use_gpu)
+traj = EMRIInspiral(func=KerrEccEqFlux, force_backend="cuda12x", use_gpu=use_gpu)
+amp = AmpInterpKerrEccEq(force_backend="cuda12x")
+interpolate_mode_sum = InterpolatedModeSum(force_backend="cuda12x")
+ylm_gen = GetYlms(include_minus_m=False, force_backend="cuda12x")
 
 # Initialize factor and other missing variables
 factor = 1.0  # Normalization factor
@@ -150,7 +150,7 @@ xI_o = 1.0
 theta_o = np.pi/3  # polar viewing angle
 phi_o = np.pi/2  # azimuthal viewing angle
 
-h_true = waveform_gen(m1_o, m2_o, a_o, p0_o, e0_o, xI_o, theta_o, phi_o, dist=dist, dt=dt, T=1)
+h_true = waveform_gen(m1_o, m2_o, a_o, p0_o, e0_o, xI_o, theta_o, phi_o, dist=dist, dt=dt, T=0.1)
 
 N = int(len(h_true)) 
 gwf = GWfuncs.GravWaveAnalysis(N=N,dt=dt)
@@ -207,7 +207,7 @@ def loglike_gpu(params, save_modes=True):
     total_power_sum = np.sum(total_power)
 
     # Change num of selected modes here 
-    M_mode = 10
+    M_mode = 3
 
     # Get top M indices
     top_indices_gpu = gwf.xp.argsort(total_power)[-M_mode:][::-1]  # Top M indices in descending order
@@ -339,7 +339,7 @@ def loglike(params):
     total_power = gwf.calc_power(teuk_modes, ylms, m0mask)
 
     # Change num of selected modes here 
-    M_mode = 10
+    M_mode = 3
 
     # Get top M indices
     top_indices_gpu = gwf.xp.argsort(total_power)[-M_mode:][::-1]  # Top M indices in descending order
@@ -521,3 +521,4 @@ def prior_transform(params):
     ## TODO ##
     return ###
 
+parameter_space_search_example(n_samples=100)

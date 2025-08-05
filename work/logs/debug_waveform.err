@@ -1,0 +1,15 @@
+ERROR: Unable to locate a modulefile for 'python/3.8'
+ERROR: Unable to locate a modulefile for 'cuda/11.8'
+python: can't open file '/nfs/home/svu/e1498138/localgit/FEWNEW/work/work/nestedsampling_debug.py': [Errno 2] No such file or directory
+ERROR: Unable to locate a modulefile for 'python/3.8'
+ERROR: Unable to locate a modulefile for 'cuda/11.8'
+=>> PBS: job killed: walltime 1803 exceeded limit 1800
+ERROR: Unable to locate a modulefile for 'python/3.8'
+ERROR: Unable to locate a modulefile for 'cuda/11.8'
+/var/spool/pbs/mom_priv/jobs/133490.stdct-mgmt-02.SC: line 26: 2520490 Killed                  python step_debug.py
+Cgroup mem limit exceeded: oom-kill:constraint=CONSTRAINT_MEMCG,nodemask=(null),cpuset=133490.stdct-mgmt-02,mems_allowed=0-1,oom_memcg=/pbs_jobs.service/jobid/133490.stdct-mgmt-02,task_memcg=/pbs_jobs.service/jobid/133490.stdct-mgmt-02,task=python,pid=2520490,uid=23640
+
+ERROR: Unable to locate a modulefile for 'python/3.8'
+ERROR: Unable to locate a modulefile for 'cuda/11.8'
+ERROR: Unable to locate a modulefile for 'python/3.8'
+ERROR: Unable to locate a modulefile for 'cuda/11.8'

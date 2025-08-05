@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/nfs/home/svu/e1498138/localgit/FEWNEW/work/minimal_test.py", line 7, in <module>
+    print("GPU count:", cuda.device_count())
+                        ^^^^^^^^^^^^^^^^^
+AttributeError: module 'numba.cuda' has no attribute 'device_count'. Did you mean: 'device_init'?
