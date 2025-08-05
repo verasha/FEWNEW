@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/nfs/home/svu/e1498138/localgit/FEWNEW/work/nestedsampling.py", line 53, in <module>
+    if not cuda.is_available():
+           ^^^^
+NameError: name 'cuda' is not defined

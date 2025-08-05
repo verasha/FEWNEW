@@ -1,0 +1,20 @@
+/var/spool/pbs/mom_priv/jobs/132924.stdct-mgmt-02.SC: line 19: 2353977 Killed                  python -u nestedsampling.py > stdout.$PBS_JOBID 2> stderr.$PBS_JOBID
+Job completed at Fri Aug  1 02:46:23 PM +08 2025
+Cgroup mem limit exceeded: oom-kill:constraint=CONSTRAINT_MEMCG,nodemask=(null),cpuset=132924.stdct-mgmt-02,mems_allowed=0-1,oom_memcg=/pbs_jobs.service/jobid/132924.stdct-mgmt-02,task_memcg=/pbs_jobs.service/jobid/132924.stdct-mgmt-02,task=python,pid=2353977,uid=23640
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			Resource Usage on 2025-08-01 14:46:24.026337:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	JobId: 132924.stdct-mgmt-02
+	Project: personal-e1498138
+	Exit Status: 0
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	NCPUs: Requested(36), Used(36)
+	CPU Time Used: 00:01:23
+	Memory: Requested(240gb), Used(262144kb)
+	Vmem Used: 13340084kb
+	Walltime: Requested(01:00:00), Used(00:03:33)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Execution Nodes Used: (GN-A40-004[0]:ncpus=36:ngpus=1)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	No GPU-related information available for this job.
