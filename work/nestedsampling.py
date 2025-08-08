@@ -228,14 +228,14 @@ def loglike(params):
 
 #Generating data (true)
 
-m1_o = 1e5
+m1_o = 1e6
 m2_o = 1e1
 a_o = 0.3
-p0_o = 40
+p0_o = 12
 e0_o = 0.1
 xI_o = 1.0
 theta_o = np.pi/3  # polar viewing angle
-phi_o = np.pi/2  # azimuthal viewing angle
+phi_o = np.pi/4  # azimuthal viewing angle
 dist = 1 # Gpc
 
 print("Generating true waveform...")
@@ -257,15 +257,15 @@ def prior_transform(utheta):
       um1, um2, ua, up0, ue0, uxI0, utheta_angle, uphi, udist = utheta
 
       # Parameter limits
-      m1lim = [1e5, 1e7]
-      m2lim = [1, 100]
-      alim = [0.1, 0.9]
-      p0lim = [10, 100]
-      e0lim = [0.01, 0.7]
+      m1lim = [9.99e5, 1.001e6]
+      m2lim = [9.99, 10.01]
+      alim = [0.2997, 0.3003]
+      p0lim = [11.988, 12.012]
+      e0lim = [9.99e-2, 0.1001]
       xI0lim = [1.0, 1.0]
-      thetalim = [0, np.pi]
-      philim = [0, 2*np.pi]
-      distlim = [0.01, 100]  # Distance in Gpc
+      thetalim = [np.pi / 3 * (0.999), np.pi / 3 * (1.001)]
+      philim = [np.pi / 4 * (0.999), np.pi / 4 * (1.001)]
+      distlim = [0.999, 1.001]  # Distance in Gpc
 
       # Log-uniform for masses
       m1 = 10**(np.log10(m1lim[0]) + um1 * (np.log10(m1lim[1]) - np.log10(m1lim[0])))
