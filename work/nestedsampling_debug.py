@@ -26,7 +26,7 @@ import os
 import sys
 
 print("Importing GWfuncs...")
-import GWfuncs
+import localgit.FEWNEW.work.GWfuncs_backup as GWfuncs_backup
 print("Importing cupy...")
 import cupy as cp
 import gc

@@ -32,7 +32,7 @@ import sys
 # sys.path.insert(0, '/nfs/home/svu/e1498138/localgit/FEWNEW/work/')
 
 print("Importing GWfuncs...")
-import GWfuncs
+import localgit.FEWNEW.work.GWfuncs_backup as GWfuncs_backup
 # import gc
 # import pickle
 print("Importing cupy...")
@@ -112,7 +112,7 @@ h_true = waveform_gen(m1_o, m2_o, a_o, p0_o, e0_o, xI_o, theta_o, phi_o, dist=di
 
 print("Creating GWfuncs analysis object...")
 N_data = int(len(h_true))  # Use data length as reference
-gwf = GWfuncs.GravWaveAnalysis(N=N_data, dt=dt)
+gwf = GWfuncs_backup.GravWaveAnalysis(N=N_data, dt=dt)
 
 print("Initializing trajectory and amplitude generators...")
 # Initialize trajectory and amplitude generators
