@@ -29,7 +29,7 @@ import sys
 # # Add it to Python path
 # sys.path.insert(0, '/nfs/home/svu/e1498138/localgit/FEWNEW/work/')
 
-import GWfuncs
+import localgit.FEWNEW.work.GWfuncs_backup as GWfuncs_backup
 # import gc
 # import pickle
 import cupy as cp
@@ -153,7 +153,7 @@ phi_o = np.pi/2  # azimuthal viewing angle
 h_true = waveform_gen(m1_o, m2_o, a_o, p0_o, e0_o, xI_o, theta_o, phi_o, dist=dist, dt=dt, T=0.1)
 
 N = int(len(h_true)) 
-gwf = GWfuncs.GravWaveAnalysis(N=N,dt=dt)
+gwf = GWfuncs_backup.GravWaveAnalysis(N=N,dt=dt)
 
 # Define structured array for storing mode information
 mode_dtype = np.dtype([
