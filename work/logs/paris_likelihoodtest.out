@@ -1,0 +1,36 @@
+Initializing waveform generator...
+Creating GenerateEMRIWaveform class...
+Done initializing waveform generator.
+Generating data signal...
+Done generating data signal.
+Setting up GWFuncs...
+Done setting up GWFuncs.
+Setting up log-likelihood and prior...
+Done setting up log-likelihood and prior.
+Setting up ParisMC sampler...
+Done setting up ParisMC sampler.
+Setting up initial covariance matrix...
+Done setting up initial covariance matrix.
+Initializing sampler...
+Done initializing sampler.
+Preparing LHS samples...
+Done preparing LHS samples.
+Running sampling...
+Done running sampling.
+Job completed at Tue Sep 23 09:50:46 PM +08 2025
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			Resource Usage on 2025-09-23 21:50:47.116930:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	JobId: 223335.stdct-mgmt-02
+	Project: personal-e1498138
+	Exit Status: 0
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	NCPUs: Requested(4), Used(4)
+	CPU Time Used: 06:37:46
+	Memory: Requested(32gb), Used(11614564kb)
+	Vmem Used: 17006348kb
+	Walltime: Requested(24:00:00), Used(04:21:16)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Execution Nodes Used: (GN-A40-003[0]:ncpus=4:ngpus=1:mem=33554432kb)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	No GPU-related information available for this job.

@@ -12,27 +12,29 @@ class LogLike:
     """
 
     
-    def __init__(self, params, waveform_gen, gwf, M_init = 100, M_mode=5, N_traj = 5000, mode_threshold=0.01, distance_threshold=0.1, verbose=False):
+    def __init__(self, params, waveform_gen, gwf, M_init = 100, M_mode=5, N_traj = 5000, mode_threshold=0.01, distance_threshold=0.1, verbose=False, waveform_gen_sep=None):
         """
         Initialize the LogLike class.
         
         Parameters and some notes:
         - params: List of DATA/SIGNAL parameters 
                   [m1, m2, a, p0, e0, xI0, theta, phi, dist]
-        - waveform_gen: Waveform generator object
+        - waveform_gen: Waveform generator object (separate_modes=False)
+        - waveform_gen_sep: Waveform generator with separate_modes=True (optional, defaults to waveform_gen)
         - gwf: GravWaveAnalysis object 
         - dt: Time step (uses gwf if None)
         - T: Total time (uses gwf if None)
         - M_init: Initial number of modes to consider for selection for modeselector class (default = 100)
         - M_mode: Number of modes to generate at each point (default = 5)
         - N_traj: Number of trajectory points for mode selection (default = 5000)
-        - threshold: Threshold for mode selection (default = 0.01)
+        - mode_threshold: Threshold for mode selection (default = 0.01)
         - distance_threshold: Parameter distance threshold for mode regeneration (default = 0.1)
         - verbose: Whether to print debug information during mode selection (default = False)
         TODO: Save mode info as we move?
         """
         self.params = params
         self.waveform_gen = waveform_gen
+        self.waveform_gen_sep = waveform_gen_sep if waveform_gen_sep is not None else waveform_gen
         self.M_init = M_init
         self.M_mode = M_mode
         self.N_traj = N_traj
@@ -55,7 +57,6 @@ class LogLike:
         self.delta_T = self.T * YRSID_SI / self.N_traj
 
         # Generate data signal with data parameters
-        # TODO: change every dependancy to detector frame
         # OLD: m1, m2, a, p0, e0, xI0, theta, phi, dist = params
         m1, m2, a, p0, e0, xI0, dist, qS, phiS, qK, phiK, Phi_phi0, Phi_theta0, Phi_r0 = params
         # OLD: self.signal = waveform_gen(m1, m2, a, p0, e0, xI0, theta, phi, dist=dist, dt=self.dt, T=self.T)
@@ -69,7 +70,6 @@ class LogLike:
         # self.history = []
         
         # Cache for selected modes to avoid repeated computation
-        # TODO: actually check if this works?
         self._mode_cache = {}
         self._original_params = None
         self._cached_modes = None
@@ -79,21 +79,128 @@ class LogLike:
         """Generate waveforms for selected mode groups."""
         m1, m2, a, p0, e0, xI0, dist, qS, phiS, qK, phiK, Phi_phi0, Phi_theta0, Phi_r0 = params
 
-        waveforms_per_group = []
+        # # Original implementation
+        # waveforms_per_group = []
+        # 
+        # for group in selected_labels:
+        #     h_group = self.waveform_gen(
+        #         m1, m2, a, p0, e0, xI0, dist, 
+        #         qS, phiS, qK,phiK,
+        #         Phi_phi0, Phi_theta0, Phi_r0, 
+        #         dt=self.dt,
+        #         T=self.T,
+        #         mode_selection=group, 
+        #         include_minus_mkn=False,
+        #     )
+        # 
+        #     waveforms_per_group.append(h_group)
+        # 
+        # return waveforms_per_group
 
+        # Optimized implementation
+        # Separate single modes and multi-mode groups
+        single_modes = []
+        negative_counterparts = []
+        multi_groups = []
+        group_mapping = []  # Track original order
+        
+        for i, group in enumerate(selected_labels):
+            if len(group) == 1:
+                mode = group[0]
+                l, m, n = mode
+                
+                # Check if this mode has a negative counterpart in single modes
+                negated_mode = (l, -m, -n)
+                
+                if negated_mode in single_modes:
+                    # Put into negative counterparts list
+                    negative_counterparts.append(mode)
+                    group_mapping.append(('negative', len(negative_counterparts) - 1))
+                elif mode in negative_counterparts:
+                    # Already handled as negative counterpart
+                    continue
+                else:
+                    # Check if ANY of the existing single modes will conflict
+                    has_conflict = any((l, -existing_m, -existing_n) == mode for (existing_l, existing_m, existing_n) in single_modes)
+                    
+                    if has_conflict:
+                        negative_counterparts.append(mode)
+                        group_mapping.append(('negative', len(negative_counterparts) - 1))
+                    else:
+                        single_modes.append(mode)
+                        group_mapping.append(('single', len(single_modes) - 1))
+            else:
+                multi_groups.append(group)
+                group_mapping.append(('multi', len(multi_groups) - 1))
 
-        for group in selected_labels:
-            h_group = self.waveform_gen(
+        # Generate all single modes at once using separate_modes generator
+        h_singles = None
+        if single_modes:
+            h_singles = self.waveform_gen_sep(
                 m1, m2, a, p0, e0, xI0, dist, 
-                qS, phiS, qK,phiK,
+                qS, phiS, qK, phiK,
                 Phi_phi0, Phi_theta0, Phi_r0, 
                 dt=self.dt,
                 T=self.T,
-                mode_selection=group, 
+                mode_selection=single_modes,
                 include_minus_mkn=False,
             )
 
-            waveforms_per_group.append(h_group)
+        # Generate negative counterparts separately
+        h_negatives = None
+        if negative_counterparts:
+            h_negatives = self.waveform_gen_sep(
+                m1, m2, a, p0, e0, xI0, dist, 
+                qS, phiS, qK, phiK,
+                Phi_phi0, Phi_theta0, Phi_r0, 
+                dt=self.dt,
+                T=self.T,
+                mode_selection=negative_counterparts,
+                include_minus_mkn=False,
+            )
+
+        # Generate multi-mode groups separately using combined generator
+        h_multis = []
+        for group in multi_groups:
+            h_group = self.waveform_gen(
+                m1, m2, a, p0, e0, xI0, dist, 
+                qS, phiS, qK, phiK,
+                Phi_phi0, Phi_theta0, Phi_r0, 
+                dt=self.dt,
+                T=self.T,
+                mode_selection=group,
+                include_minus_mkn=False,
+            )
+            h_multis.append(h_group)
+
+        # Reconstruct waveforms_per_group in original order
+        waveforms_per_group = []
+        single_idx = 0
+        negative_idx = 0
+        multi_idx = 0
+        
+        for group_type, idx in group_mapping:
+            if group_type == 'single':
+                # Extract single column from h_singles
+                if h_singles.ndim == 1:
+                    h_group = h_singles  # Keep as 1D
+                else:
+                    h_group = h_singles[:, single_idx]  # Extract column as 1D
+                waveforms_per_group.append(h_group)
+                single_idx += 1
+            elif group_type == 'negative':
+                # Extract single column from h_negatives
+                h_group = h_negatives[:, negative_idx:negative_idx+1]
+                waveforms_per_group.append(h_group)
+                negative_idx += 1
+            else:
+                # Add multi-mode group (ensure 1D)
+                h_group = h_multis[multi_idx]
+                # Keep as 1D like the singles
+                if h_group.ndim == 2 and h_group.shape[1] == 1:
+                    h_group = h_group.flatten()
+                waveforms_per_group.append(h_group)
+                multi_idx += 1
 
         return waveforms_per_group
     
@@ -104,14 +211,17 @@ class LogLike:
         
         # NOTE: Change condition for distance check as needed
         # using simple frobenius norm of parameter difference
-        param_distance = np.linalg.norm(theta_template - self._original_params)
+        param_distance = np.linalg.norm(np.array(theta_template) - np.array(self._original_params))
         if self.verbose:
             print(f"Parameter distance: {param_distance}")
         return param_distance > self.distance_threshold
     
     def _cache_modes(self, theta_template, selected_modes, selected_labels):
         """Cache modes for current parameter set."""
-        self._original_params = theta_template.copy()
+        if hasattr(theta_template, 'copy'):
+            self._original_params = theta_template.copy()
+        else:
+            self._original_params = tuple(theta_template)
         self._cached_modes = selected_modes
         self._cached_labels = selected_labels
     

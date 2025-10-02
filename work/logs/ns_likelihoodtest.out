@@ -1,0 +1,58 @@
+Initializing waveform generator...
+Creating GenerateEMRIWaveform class...
+Done initializing waveform generator.
+Generating data signal...
+Done generating data signal.
+Setting up GWFuncs...
+Done setting up GWFuncs.
+Setting up loglike and prior_transform functions...
+Done setting up loglike and prior_transform functions.
+Starting nested sampling...
+Done nested sampling.
+Saving results to pickle...
+Job completed at Sat Sep 20 04:38:44 AM +08 2025
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			Resource Usage on 2025-09-20 04:38:46.503412:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	JobId: 215387.stdct-mgmt-02
+	Project: personal-e1498138
+	Exit Status: 0
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	NCPUs: Requested(4), Used(4)
+	CPU Time Used: 08:16:00
+	Memory: Requested(32gb), Used(11231780kb)
+	Vmem Used: 234360560kb
+	Walltime: Requested(24:00:00), Used(08:18:31)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Execution Nodes Used: (GN-A40-001[0]:ncpus=4:ngpus=1:mem=33554432kb)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	No GPU-related information available for this job.
+Initializing waveform generator...
+Creating GenerateEMRIWaveform class...
+Done initializing waveform generator.
+Generating data signal...
+Done generating data signal.
+Setting up GWFuncs...
+Done setting up GWFuncs.
+Setting up loglike and prior_transform functions...
+Done setting up loglike and prior_transform functions.
+Starting nested sampling...
+Done nested sampling.
+Saving results to pickle...
+Job completed at Tue Sep 23 04:39:04 AM +08 2025
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			Resource Usage on 2025-09-23 04:39:06.692696:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	JobId: 217592.stdct-mgmt-02
+	Project: personal-e1498138
+	Exit Status: 0
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	NCPUs: Requested(4), Used(4)
+	CPU Time Used: 13:57:27
+	Memory: Requested(32gb), Used(11604416kb)
+	Vmem Used: 234349136kb
+	Walltime: Requested(24:00:00), Used(14:01:49)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Execution Nodes Used: (GN-A40-001[0]:ncpus=4:ngpus=1:mem=33554432kb)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	No GPU-related information available for this job.

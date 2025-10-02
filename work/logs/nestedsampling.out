@@ -1800,3 +1800,52 @@ Done initializing waveform generator.
 Setting up GW functions and parameters...
 Done setting up GW functions and parameters.
 Starting nested sampling...
+Job completed at Wed Sep 17 08:13:01 AM +08 2025
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			Resource Usage on 2025-09-17 08:13:18.247017:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	JobId: 211863.stdct-mgmt-02
+	Project: personal-e1498138
+	Exit Status: 0
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	NCPUs: Requested(4), Used(4)
+	CPU Time Used: 13:58:53
+	Memory: Requested(32gb), Used(11232708kb)
+	Vmem Used: 249749252kb
+	Walltime: Requested(24:00:00), Used(14:01:07)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Execution Nodes Used: (GN-A40-005[0]:ncpus=4:ngpus=1:mem=33554432kb)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	No GPU-related information available for this job.
+Importing libraries...
+Done importing libraries.
+Tuning FEW configuration...
+Checking available backends...
+ - Backend 'cpu': available
+ - Backend 'cuda11x': unavailable
+ - Backend 'cuda12x': available
+ - Backend 'cuda': available
+ - Backend 'gpu': available
+Initializing waveform generator...
+Creating GenerateEMRIWaveform class...
+Done initializing waveform generator.
+Setting up GW functions and parameters...
+Done setting up GW functions and parameters.
+Starting nested sampling...
+Job completed at Wed Sep 17 11:27:43 PM +08 2025
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			Resource Usage on 2025-09-17 23:27:44.693196:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	JobId: 212367.stdct-mgmt-02
+	Project: personal-e1498138
+	Exit Status: 0
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	NCPUs: Requested(4), Used(4)
+	CPU Time Used: 13:58:18
+	Memory: Requested(32gb), Used(11232936kb)
+	Vmem Used: 249749320kb
+	Walltime: Requested(24:00:00), Used(14:00:44)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Execution Nodes Used: (GN-A40-005[0]:ncpus=4:ngpus=1:mem=33554432kb)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	No GPU-related information available for this job.

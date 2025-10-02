@@ -175,6 +175,7 @@ with dynesty.pool.Pool(16, loglike_obj, prior_transform) as pool:
 # NOTE: Save end results in pickle as a workaround
 results = dsampler.results
 
+import pickle
 # Save results using pickle
 with open('nestedsampling_results.pkl', 'wb') as f:
     pickle.dump(results, f)

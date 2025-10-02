@@ -3,12 +3,15 @@ try:
     import cupy as cp
 except ImportError:
     cp = None
-from lisatools.sensitivity import get_sensitivity, LISASens
+from lisatools.sensitivity import get_sensitivity, CornishLISASens
 from few.utils.geodesic import get_fundamental_frequencies
 
 
 class ModeSelector:
     """ Class to select modes based on a given threshold. """
+
+    # Physical constants
+    MTSUN_SI = 4.925491025543576e-06 # Mass-time conversion factor in seconds
 
     def __init__(self, params, traj, amp, ylm_gen, delta_T, gwf, verbose=False):
         """ Initialize the ModeSelector with the provided parameters. 
@@ -25,6 +28,7 @@ class ModeSelector:
                     NOT the same as dt used for interpolation
         - gwf: GravWaveAnalysis object 
         - verbose: Whether to print debug information during mode selection
+        - sensitivity_fn: Function that takes frequency array and returns PSD for noise weighting
 
         TODO: calc gw_freqs and gw_phases inside this class? 
         maybe pass parameter set as a vector instead to simplify things...
@@ -201,14 +205,24 @@ class ModeSelector:
                     A_j_pos = self.teuk_modes[:, pos_m_idx_j]
                     A_j = (-1)**l_j * self.gwf.xp.conj(A_j_pos)
 
+                # Total mass
+                m1, m2 = self.params[0], self.params[1]
+                M_tot = m1 + m2
+                M_sec = M_tot * self.MTSUN_SI  # in seconds
+
+                # Convert dimensionless freq to Hz
+                freq_hz_i = np.abs(self.gw_freqs[idx_i]) / (2 * np.pi * M_sec)
+                freq_hz_j = np.abs(self.gw_freqs[idx_j]) / (2 * np.pi * M_sec)
+
+                # NOTE: do i need to make all freqs positive here???
                 # Get sensitivity for each mode 
-                Sn_i = get_sensitivity(self.gw_freqs[idx_i], 
-                                       sens_fn=LISASens, 
+                Sn_i = get_sensitivity(freq_hz_i, 
+                                       sens_fn=CornishLISASens, 
                                        return_type="PSD"
                                        )
                 
-                Sn_j = get_sensitivity(self.gw_freqs[idx_j], 
-                                        sens_fn=LISASens, 
+                Sn_j = get_sensitivity(freq_hz_j, 
+                                        sens_fn=CornishLISASens, 
                                         return_type="PSD"
                                         )
 
@@ -242,12 +256,14 @@ class ModeSelector:
     def select_modes(self, 
                      M_init=100, 
                      M_sel=5, 
-                     threshold=0.01
+                     threshold=0.01,
+                     noise_weighted=False
                     ):
         """ Select modes based on a given threshold.
         M_init = number of modes to select initially (for the power sorting)
         M_sel = number of modes to select in the end (default: 5)
         threshold = for accept/reject cond. of inner products between modes
+        noise_weighted = whether to use noise-weighted power for initial sorting
         """
 
         ###### Step 0: Initialization and Setup ######
@@ -264,7 +280,12 @@ class ModeSelector:
 
         # Calculate power and sort 
         m0mask = self.amp.m_arr_no_mask != 0
-        total_power = self.gwf.calc_power(self.teuk_modes, self.ylms, m0mask)
+        if noise_weighted:
+            total_power = self.gwf.calc_power(self.teuk_modes, self.ylms, m0mask, 
+                                             m1=self.params[0], m2=self.params[1], 
+                                             gw_freqs=self.gw_freqs)
+        else:
+            total_power = self.gwf.calc_power(self.teuk_modes, self.ylms, m0mask)
 
         # Top M_init indices in descending order (based on power)
         top_indices = self.gwf.xp.argsort(total_power)[-M_init:][::-1] 
@@ -308,32 +329,32 @@ class ModeSelector:
             # Keep track of processed indices
             processed_ori_indices.append(hj_prime_idx)
 
-            max_inner = 0 
-            max_inner_idx = -1 
+            max_overlap = 0 
+            max_overlap_idx = -1 
 
             for k, selected_mode in enumerate(selected_modes):
                 # Calculate with each selected mode |<h_sel|h_j'>/(<h_sel|h_sel>*<h_j'|h_j'>)^(1/2)|
                 # Basically abs of overlap 
-                calc_inner = abs(self.overlap_approx(selected_mode, [hj_prime_idx]))
+                calc_overlap = abs(self.overlap_approx(selected_mode, [hj_prime_idx]))
                 if self.verbose:
-                    print(f" - Overlap with selected mode {k}: {calc_inner}")
+                    print(f" - Overlap with selected mode {k}: {calc_overlap}")
 
                 
-                # Check if this is the maximum inner product found so far
-                if calc_inner > max_inner:
-                    max_inner = calc_inner
-                    max_inner_idx = k
+                # Check if this is the maximum overlap found so far
+                if calc_overlap > max_overlap:
+                    max_overlap = calc_overlap
+                    max_overlap_idx = k
 
-            # Check if the maximum inner product is below the threshold
-            if max_inner < threshold:
+            # Check if the maximum overlap is below the threshold
+            if max_overlap < threshold:
                 # Fulfill cond: Accept the mode
                 selected_modes.append([hj_prime_idx])
                 selected_labels.append([hj_prime_label])
             
             else:
                 # Doesn't fulfill cond: Reject the mode and add to the most correlated mode 
-                selected_modes[max_inner_idx].append(hj_prime_idx)
-                selected_labels[max_inner_idx].append(hj_prime_label)
+                selected_modes[max_overlap_idx].append(hj_prime_idx)
+                selected_labels[max_overlap_idx].append(hj_prime_label)
                 
 
         ###### Step N+1: Handle remaining modes as h_M ######

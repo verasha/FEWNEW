@@ -14,6 +14,7 @@ class GravWaveAnalysis:
     # Physical constants
     Gpc = 3.0856775814913674e+25 # Gigaparsec in meters
     MRSUN_SI = 1476.6250615036158 # Mass-radius in SI units
+    MTSUN_SI = 4.925491025543576e-06 # Mass-time conversion factor in seconds
     YRSID_SI = 31558149.763545603 # Number of seconds in 1 astronomical year
 
     def __init__(self, T=None, dt=None, use_gpu=None):
@@ -72,14 +73,16 @@ class GravWaveAnalysis:
         }
     
 
-    def calc_power(self, teuk_modes, ylms, m0mask):
+    def calc_power(self, teuk_modes, ylms, m0mask, m1=None, m2=None, gw_freqs=None):    
         """
-        Calculate the power spectrum using the configured backend (GPU/CPU).
+        Calculate the power spectrum using the configured backend.
 
         Parameters:
         teuk_modes (numpy.ndarray): Teukolsky modes.
         ylms (numpy.ndarray): Spherical harmonics.
         m0mask (numpy.ndarray): Boolean mask where m!= 0.
+        m1, m2: Mass parameters (optional, for noise weighing).
+        gw_freqs: Gravitational wave dimensionless frequencies (optional, for noise weighing).
 
         Returns:
         numpy.ndarray: Power summed over all trajectory points.
@@ -91,7 +94,28 @@ class GravWaveAnalysis:
         h_lmn = full_modes * ylms[self.xp.newaxis, :]
         power = self.xp.abs(h_lmn)**2
 
-        return self.xp.sum(power, axis=0)  # Sum each mode over all trajectory points
+        if m1 is not None and m2 is not None and gw_freqs is not None:
+            M = m1 + m2
+            M_sec = M * self.MTSUN_SI  # in seconds
+
+            # Convert freq array to 2d [traj_pts, modes]
+            gw_freqs_bd = [self.xp.asarray(freq_array) for freq_array in gw_freqs]
+            freqs_array = self.xp.stack(gw_freqs_bd, axis=1)
+
+            # Convert dimensionless freq to Hz and take absolute value
+            freqs_hz = self.xp.abs(freqs_array) / (2 * self.xp.pi * M_sec)
+
+            freqs_shape = freqs_hz.shape
+            # freqs_hz_cpu = freqs_hz.get() if hasattr(freqs_hz, 'get') else freqs_hz
+
+            # Get PSD over traj
+            Sn = get_sensitivity(freqs_hz.flatten(), sens_fn=CornishLISASens, return_type="PSD").reshape(freqs_shape)
+
+            # Apply noise weighing
+            power /= Sn
+        
+        total_power = self.xp.sum(power, axis=0)
+        return total_power
       
 
     # def char_strain(self, hf):
