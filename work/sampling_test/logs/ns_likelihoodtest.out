@@ -1,0 +1,382 @@
+Initializing waveform generator...
+Creating GenerateEMRIWaveform class...
+Done initializing waveform generator.
+Generating data signal...
+Done generating data signal.
+Setting up GWFuncs...
+Done setting up GWFuncs.
+Setting up loglike and prior_transform functions...
+We're using wider priors
+Done setting up loglike and prior_transform functions.
+Starting nested sampling...
+Exception while calling loglikelihood function:
+  params: [6.00018789 1.47711526 0.69976435 7.49791968 0.40009271 0.47255892
+ 0.93224655 0.97121744 0.47963457 0.55475854]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [6.00022527 1.47713338 0.69985894 7.50191623 0.39997046 0.49101343
+ 0.87343334 1.03568558 0.49521873 0.55623685]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [5.99997935 1.47699116 0.7003556  7.49956933 0.39999025 0.48376528
+ 0.92228557 1.02622584 0.43541048 0.53271956]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [5.9998908  1.47699534 0.69974394 7.50125447 0.40007959 0.51273546
+ 0.92774624 0.92628437 0.46329677 0.45140276]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [5.99988071 1.47699108 0.70007693 7.49995442 0.40000607 0.51390851
+ 0.8617058  1.02460505 0.46162985 0.5169745 ]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [6.00005182 1.47723911 0.70004699 7.50117845 0.40002882 0.47300214
+ 0.86948662 1.07426385 0.33716636 0.54267823]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [6.0001789  1.47722173 0.70031559 7.50134272 0.39990112 0.46845627
+ 0.83963649 0.98916238 0.31720756 0.44850739]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [6.00001524 1.47710071 0.69958294 7.50160334 0.40008386 0.51512856
+ 0.86989326 0.93777369 0.44648014 0.49929158]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [5.99995425 1.47714284 0.70024551 7.50221124 0.4000864  0.47788029
+ 0.91930108 1.04944764 0.50262921 0.50496648]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [5.99978418 1.47716647 0.69960849 7.5018717  0.3999657  0.51728223
+ 0.93363719 0.99760366 0.43474069 0.4993229 ]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [5.99981964 1.47719692 0.7002076  7.50041742 0.39994576 0.52766435
+ 0.87740932 1.0534825  0.48979028 0.44315078]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [6.00016934 1.47716004 0.70004222 7.50178297 0.4000085  0.47740448
+ 0.85775328 1.04702476 0.44951638 0.52013753]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [5.99984483 1.47710031 0.6998212  7.49769131 0.4000984  0.52784308
+ 0.90573243 1.08067606 0.34577988 0.47368841]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [5.99991494 1.4771468  0.70020184 7.49796483 0.40002984 0.4901062
+ 0.86382275 0.93009544 0.45262156 0.45587495]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [6.00015328 1.47699915 0.7004065  7.50026401 0.40010254 0.4720177
+ 0.84477375 1.0644751  0.43750271 0.4975993 ]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [5.99977206 1.47705572 0.69958867 7.4985514  0.40006303 0.46728863
+ 0.87107632 0.9583077  0.44738629 0.45116899]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [6.00003208 1.47724122 0.70022961 7.50158707 0.39997254 0.51696358
+ 0.86158735 0.93745233 0.40321808 0.5505139 ]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [5.99997835 1.47719737 0.69965495 7.50108901 0.39998754 0.4706636
+ 0.86683144 1.03551126 0.48788274 0.5486878 ]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [5.99996403 1.47712458 0.70032879 7.50216004 0.40005357 0.48368933
+ 0.82105561 0.98056984 0.40597372 0.4502112 ]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [5.9998989  1.4772304  0.70006679 7.50001761 0.39997452 0.52221233
+ 0.88055158 0.98120664 0.45612131 0.46972552]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [6.0000431  1.47722986 0.6997395  7.49757857 0.40008182 0.46801276
+ 0.84826574 0.99283539 0.42849671 0.54403711]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [5.99978578 1.47709022 0.69995844 7.50027919 0.40003128 0.48733247
+ 0.91723107 1.10198932 0.32094959 0.48946478]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [6.00012038 1.47710631 0.700137   7.49839676 0.40005421 0.47886091
+ 0.9020833  1.07252082 0.30813954 0.52037973]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [6.00001574 1.47705608 0.70013919 7.50213269 0.40002267 0.50718968
+ 0.82432243 0.96793378 0.3169665  0.45147014]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [5.99998151 1.47698988 0.69984658 7.50215335 0.39997885 0.469092
+ 0.85888475 0.91481409 0.34334154 0.49159455]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [5.99986606 1.47710603 0.69963816 7.50065036 0.40007107 0.53287367
+ 0.82795786 1.10151779 0.38346859 0.55511208]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [6.00020892 1.47722257 0.69981001 7.50006028 0.40003866 0.48237798
+ 0.861956   0.93316752 0.49893838 0.47451989]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [5.99987956 1.47718676 0.70016252 7.49842846 0.40004562 0.52668308
+ 0.88919993 0.92516112 0.33016098 0.53420493]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [5.99998538 1.47717784 0.69958647 7.49988093 0.40008566 0.48883228
+ 0.82298689 0.96141334 0.39743406 0.48768492]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [5.99984688 1.47717161 0.6998682  7.49760913 0.40004094 0.48018488
+ 0.86499769 1.06826607 0.37382774 0.47005248]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [6.00007574 1.47705731 0.69959962 7.50026103 0.39997845 0.4916857
+ 0.82199105 0.89554682 0.32716211 0.47541691]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [5.9999368  1.47709706 0.69997916 7.49796718 0.3999942  0.50884715
+ 0.9039172  0.99561815 0.36670175 0.47141669]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [5.99986586 1.47716739 0.69995504 7.49906539 0.40006111 0.51026504
+ 0.86784938 0.91820642 0.33901321 0.53908051]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [6.00022494 1.47710528 0.69971641 7.50152805 0.39996425 0.472232
+ 0.86092941 1.05142595 0.32737399 0.50265946]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [5.99989449 1.47705581 0.69989697 7.50022633 0.39997239 0.51443753
+ 0.84143092 1.1001006  0.31624772 0.48350641]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [6.00011015 1.47709042 0.70030522 7.4978569  0.4000588  0.48044615
+ 0.83744316 1.07053953 0.36056487 0.53538099]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [6.00008386 1.47708849 0.70003683 7.50091955 0.39989794 0.5170219
+ 0.83386677 0.97923011 0.36178245 0.4986173 ]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [6.00016555 1.47705827 0.69991052 7.50182769 0.39998678 0.48532975
+ 0.85369012 0.91236674 0.37549342 0.43937125]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [5.99989957 1.47711656 0.70000553 7.50071556 0.40010388 0.50222378
+ 0.92530911 0.89780547 0.39739228 0.45769195]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [6.00015157 1.47700249 0.69967551 7.50220243 0.40008656 0.53252006
+ 0.92184327 1.09902283 0.32245072 0.52008198]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [5.99991089 1.47702063 0.69987492 7.50227107 0.39991688 0.5051293
+ 0.8924589  0.93211795 0.3771246  0.45090667]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [5.99978916 1.47698743 0.69972255 7.50201192 0.399997   0.52302354
+ 0.88820689 1.08904198 0.33567592 0.50459608]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [6.000238   1.47703828 0.70040399 7.49910451 0.39989937 0.53006011
+ 0.93638038 1.02970925 0.46314397 0.49659546]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [6.00008673 1.4770098  0.70004498 7.50225903 0.40006457 0.50065671
+ 0.92431122 0.99492029 0.46274487 0.4735883 ]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [6.000171   1.47715449 0.69978757 7.50145498 0.40006693 0.50234822
+ 0.91316412 0.99680752 0.43462649 0.51868024]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [6.00010707 1.47720044 0.69958178 7.49874881 0.39991188 0.50193871
+ 0.87746892 0.92019038 0.47502972 0.49176456]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [5.99985861 1.47722772 0.70016518 7.50178586 0.39993921 0.52413308
+ 0.83325246 1.04149821 0.35694993 0.5309635 ]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [6.00006317 1.47705615 0.69992065 7.50054159 0.39999284 0.51064526
+ 0.8867531  1.02779611 0.43039444 0.55306287]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [5.99979563 1.47722177 0.69963585 7.50140592 0.40007263 0.51695941
+ 0.9190024  1.05960836 0.40794571 0.48926556]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [5.99987957 1.47722796 0.70008594 7.4985178  0.39990875 0.47849192
+ 0.82114776 0.99879903 0.43391997 0.47101262]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [6.00014828 1.47719579 0.69998293 7.49939255 0.40008942 0.49546767
+ 0.8244639  1.05894397 0.39515057 0.45587049]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [5.99981613 1.47722116 0.7002555  7.50139769 0.39993335 0.49878347
+ 0.86079372 1.10844318 0.34293117 0.4435705 ]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [5.99999869 1.47708257 0.69976302 7.49823665 0.40006969 0.49975752
+ 0.84367184 0.9283542  0.40439795 0.46312979]
+  args: []
+  kwargs: {}
+  exception:
+Exception while calling loglikelihood function:
+  params: [5.99996057 1.47715921 0.69990357 7.4986847  0.40007868 0.51795544
+ 0.84892038 1.07893386 0.38538559 0.54744846]
+  args: []
+  kwargs: {}
+  exception:
+Job completed at Wed Oct 15 06:10:06 PM +08 2025
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			Resource Usage on 2025-10-15 18:10:07.836147:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	JobId: 288201.stdct-mgmt-02
+	Project: personal-e1498138
+	Exit Status: 0
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	NCPUs: Requested(4), Used(4)
+	CPU Time Used: 00:00:45
+	Memory: Requested(32gb), Used(11230664kb)
+	Vmem Used: 17003332kb
+	Walltime: Requested(24:00:00), Used(00:01:06)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Execution Nodes Used: (GN-A40-007[0]:ncpus=4:ngpus=1:mem=33554432kb)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	No GPU-related information available for this job.
+Initializing waveform generator...
+Creating GenerateEMRIWaveform class...
+Done initializing waveform generator.
+Generating data signal...
+Done generating data signal.
+Setting up GWFuncs...
+Done setting up GWFuncs.
+Setting up loglike and prior_transform functions...
+We're using wider priors
+Done setting up loglike and prior_transform functions.
+Starting nested sampling...
+Done nested sampling.
+Saving results to pickle...
+Job completed at Thu Oct 16 11:43:57 AM +08 2025
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			Resource Usage on 2025-10-16 11:43:58.693592:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	JobId: 288203.stdct-mgmt-02
+	Project: personal-e1498138
+	Exit Status: 0
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	NCPUs: Requested(4), Used(4)
+	CPU Time Used: 17:27:14
+	Memory: Requested(32gb), Used(11232932kb)
+	Vmem Used: 234495240kb
+	Walltime: Requested(24:00:00), Used(17:33:25)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Execution Nodes Used: (GN-A40-007[0]:ncpus=4:ngpus=1:mem=33554432kb)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	No GPU-related information available for this job.

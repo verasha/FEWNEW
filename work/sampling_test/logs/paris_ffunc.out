@@ -15,204 +15,21 @@ Done initializing sampler.
 Preparing LHS samples...
 Done preparing LHS samples.
 Running sampling...
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-			Resource Usage on 2025-09-29 15:47:37.279417:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	JobId: 236977.stdct-mgmt-02
-	Project: personal-e1498138
-	Exit Status: 271
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	NCPUs: Requested(4), Used(4)
-	CPU Time Used: 00:38:31
-	Memory: Requested(32gb), Used(11825256kb)
-	Vmem Used: 26269608kb
-	Walltime: Requested(24:00:00), Used(00:35:19)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	Execution Nodes Used: (GN-A40-003[1]:ncpus=4:ngpus=1:mem=33554432kb)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	No GPU-related information available for this job.
-Initializing waveform generator...
-Creating GenerateEMRIWaveform class...
-Done initializing waveform generator.
-Creating GravWaveAnalysis class...
-Initializing loglike class...
-Done initializing loglike class.
-Setting up log_density and prior functions...
-Done setting up log-likelihood and prior.
-Setting up ParisMC sampler...
-Done setting up ParisMC sampler.
-Setting up initial covariance matrix...
-Done setting up initial covariance matrix.
-Initializing sampler...
-Done initializing sampler.
-Preparing LHS samples...
-Done preparing LHS samples.
-Running sampling...
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-			Resource Usage on 2025-09-29 16:15:19.544701:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	JobId: 237038.stdct-mgmt-02
-	Project: personal-e1498138
-	Exit Status: 271
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	NCPUs: Requested(4), Used(4)
-	CPU Time Used: 00:24:53
-	Memory: Requested(32gb), Used(11824360kb)
-	Vmem Used: 26449588kb
-	Walltime: Requested(24:00:00), Used(00:25:36)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	Execution Nodes Used: (GN-A40-002[1]:ncpus=4:ngpus=1:mem=33554432kb)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	No GPU-related information available for this job.
-Initializing waveform generator...
-Creating GenerateEMRIWaveform class...
-Done initializing waveform generator.
-Creating GravWaveAnalysis class...
-Initializing loglike class...
-Done initializing loglike class.
-Setting up log_density and prior functions...
-Done setting up log-likelihood and prior.
-Setting up ParisMC sampler...
-Done setting up ParisMC sampler.
-Setting up initial covariance matrix...
-Done setting up initial covariance matrix.
-Initializing sampler...
-Done initializing sampler.
-Preparing LHS samples...
-Done preparing LHS samples.
-Running sampling...
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-			Resource Usage on 2025-09-29 17:17:23.747883:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	JobId: 237124.stdct-mgmt-02
-	Project: personal-e1498138
-	Exit Status: 271
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	NCPUs: Requested(4), Used(4)
-	CPU Time Used: 00:41:51
-	Memory: Requested(32gb), Used(11824656kb)
-	Vmem Used: 26167296kb
-	Walltime: Requested(24:00:00), Used(00:12:15)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	Execution Nodes Used: (GN-A40-003[1]:ncpus=4:ngpus=1:mem=33554432kb)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	No GPU-related information available for this job.
-Initializing waveform generator...
-Creating GenerateEMRIWaveform class...
-Done initializing waveform generator.
-Creating GravWaveAnalysis class...
-Initializing loglike class...
-Done initializing loglike class.
-Setting up log_density and prior functions...
-Done setting up log-likelihood and prior.
-Setting up ParisMC sampler...
-Done setting up ParisMC sampler.
-Setting up initial covariance matrix...
-Done setting up initial covariance matrix.
-Initializing sampler...
-Done initializing sampler.
-Preparing LHS samples...
-Done preparing LHS samples.
-Running sampling...
-Job completed at Mon Sep 29 05:31:48 PM +08 2025
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-			Resource Usage on 2025-09-29 17:31:49.609984:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	JobId: 237141.stdct-mgmt-02
-	Project: personal-e1498138
-	Exit Status: 0
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	NCPUs: Requested(4), Used(4)
-	CPU Time Used: 00:46:58
-	Memory: Requested(32gb), Used(11823192kb)
-	Vmem Used: 26167004kb
-	Walltime: Requested(24:00:00), Used(00:13:24)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	Execution Nodes Used: (GN-A40-003[1]:ncpus=4:ngpus=1:mem=33554432kb)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	No GPU-related information available for this job.
-Initializing waveform generator...
-Creating GenerateEMRIWaveform class...
-Done initializing waveform generator.
-Creating GravWaveAnalysis class...
-Initializing loglike class...
-Done initializing loglike class.
-Setting up log_density and prior functions...
-Done setting up log-likelihood and prior.
-Setting up ParisMC sampler...
-Done setting up ParisMC sampler.
-Setting up initial covariance matrix...
-Done setting up initial covariance matrix.
-Initializing sampler...
-Done initializing sampler.
-Preparing LHS samples...
-Done preparing LHS samples.
-Running sampling...
-Job completed at Mon Sep 29 06:35:01 PM +08 2025
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-			Resource Usage on 2025-09-29 18:35:01.768263:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	JobId: 237187.stdct-mgmt-02
-	Project: personal-e1498138
-	Exit Status: 0
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	NCPUs: Requested(4), Used(4)
-	CPU Time Used: 01:24:19
-	Memory: Requested(32gb), Used(11824300kb)
-	Vmem Used: 26167052kb
-	Walltime: Requested(24:00:00), Used(00:22:41)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	Execution Nodes Used: (GN-A40-003[0]:ncpus=4:ngpus=1:mem=33554432kb)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	No GPU-related information available for this job.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-			Resource Usage on 2025-09-29 23:32:56.538718:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	JobId: 238047.stdct-mgmt-02
-	Project: personal-e1498138
-	Exit Status: 271
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	NCPUs: Requested(4), Used(4)
-	CPU Time Used: 00:00:49
-	Memory: Requested(32gb), Used(11543028kb)
-	Vmem Used: 11377800kb
-	Walltime: Requested(24:00:00), Used(00:02:01)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	Execution Nodes Used: (GN-A40-005[0]:ncpus=4:ngpus=1:mem=33554432kb)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	No GPU-related information available for this job.
-Initializing waveform generator...
-Creating GenerateEMRIWaveform class...
-Done initializing waveform generator.
-Creating GravWaveAnalysis class...
-Initializing loglike class...
-Done initializing loglike class.
-Setting up log_density and prior functions...
-Done setting up log-likelihood and prior.
-Setting up ParisMC sampler...
-Done setting up ParisMC sampler.
-Setting up initial covariance matrix...
-Done setting up initial covariance matrix.
-Initializing sampler...
-Done initializing sampler.
-Preparing LHS samples...
-Done preparing LHS samples.
-Running sampling...
 Done running sampling.
-Job completed at Tue Sep 30 12:03:20 AM +08 2025
+Job completed at Wed Oct 15 02:25:58 PM +08 2025
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-			Resource Usage on 2025-09-30 00:03:21.283347:
+			Resource Usage on 2025-10-15 14:26:00.010791:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	JobId: 238049.stdct-mgmt-02
+	JobId: 287830.stdct-mgmt-02
 	Project: personal-e1498138
 	Exit Status: 0
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	NCPUs: Requested(4), Used(4)
-	CPU Time Used: 01:44:17
-	Memory: Requested(32gb), Used(11824616kb)
-	Vmem Used: 26073908kb
-	Walltime: Requested(24:00:00), Used(00:27:48)
+	CPU Time Used: 16:13:32
+	Memory: Requested(32gb), Used(11822728kb)
+	Vmem Used: 26073176kb
+	Walltime: Requested(24:00:00), Used(04:05:47)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	Execution Nodes Used: (GN-A40-005[0]:ncpus=4:ngpus=1:mem=33554432kb)
+	Execution Nodes Used: (GN-A40-001[0]:ncpus=4:ngpus=1:mem=33554432kb)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	No GPU-related information available for this job.

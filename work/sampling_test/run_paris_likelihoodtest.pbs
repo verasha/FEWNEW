@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -q auto_free
-#PBS -o logs/paris_5s.out
-#PBS -e logs/paris_5s.err
+#PBS -o logs/paris_likelihoodtest.out
+#PBS -e logs/paris_likelihoodtest.err
 #PBS -N paris_likelihoodtest
 #PBS -l walltime=24:00:00
 #PBS -l select=1:ncpus=4:mpiprocs=1:ompthreads=4:ngpus=1:mem=32gb
@@ -19,6 +19,6 @@ source /scratch/e1498138/anaconda3/bin/activate fewsm
 export CUDA_VISIBLE_DEVICES=0
 
 # Run the Python script
-python paris_likelihoodtest_5s.py
+python paris_likelihoodtest.py
 
 echo "Job completed at $(date)"

@@ -52,6 +52,8 @@ class LogLike:
     
         # Calc delta_T
         self.delta_T = self.T * YRSID_SI / self.N_traj
+        if self.verbose:
+            print(f"Delta_T for mode selection: {self.delta_T} seconds")
 
         # Generate data signal with data parameters
         # OLD: m1, m2, a, p0, e0, xI0, theta, phi, dist = params
@@ -108,6 +110,12 @@ class LogLike:
             mode_selection=selected_labels, 
             include_minus_mkn=False,
         )
+
+        # Sort waveforms by index_map: hundreds ascending, then remainder descending
+        sorted_indices = sorted(range(len(selected_labels)), 
+                            key=lambda i: (self.amp.index_map[selected_labels[i]] % 1000 // 100, 
+                                            -(self.amp.index_map[selected_labels[i]] % 100)))
+        waveforms = waveforms[:, sorted_indices]        
         return waveforms
 
         # waveforms_per_group = []
@@ -140,6 +148,9 @@ class LogLike:
         # TODO: change all dependancy to detector frame
 
         # Use the pre-selected modes from initialization
+        if self.verbose:
+            print(f"Evaluating log-likelihood at parameters: {theta_template}")
+            print(f"Using selected modes: {self.selected_labels}")
         waveform_combined = self._generate_selected_waveforms(theta_template, self.flattened_modes)
 
         # Debug waveform generation
@@ -204,12 +215,14 @@ class LogLike:
         rho_dom_M = rho_m[max_rho_idx]
         # print(f"Using actually dominant mode {max_rho_idx} for rho_dom_M: {rho_dom_M}")
         # rho_dom_M = self.gwf.rhostat(waveform_per_mode[0])
-        print(f"Using actually dominant mode {max_rho_idx} for rho_dom_M: {rho_dom_M}")
+        if self.verbose:
+            print(f"Using actually dominant mode {max_rho_idx} for rho_dom_M: {rho_dom_M}")
 
         # Calculate beta parameter
         beta = self.gwf.calc_beta(rho_dom_M, rho_tot)
 
         if self.verbose:
+            print('beta', beta)
             print(f"rho_dom_M: {rho_dom_M}, rho_tot: {rho_tot}, beta: {beta}")
             print(f"X_scalar: {X_scalar}")
 

@@ -116,18 +116,18 @@ m2 = 3e1
 a = 0.7
 p0 = 7.5
 e0 = 0.4 
-xI0 = 1.0
-dist = 2 # Gpc
+xI0 = 1.0 #NOTE: fixed
+dist = 0.5 # Gpc
 # Polar and azimuthal angles .. detector frame
 # S = Solar system barycenter
 # K = spin angular momentum of the MBH
 qS = 0.5 
 phiS = 1 
-qK = 1 #fixed
+qK = 1 #NOTE: fixed
 phiK = phiS + np.pi/3
 # Phases
 Phi_phi0 = 0.4
-Phi_theta0 = 0.0 # equatorial
+Phi_theta0 = 0.0 # NOTE: fixed
 Phi_r0 = 0.5
 
 params_star = (m1, m2, a, p0, e0, xI0, dist, qS, phiS, qK, phiK, Phi_phi0, Phi_theta0, Phi_r0)
@@ -156,16 +156,22 @@ def log_density(params):
     return log_likes
 
 def prior_transform(u):
-    logm1lim = [5.9999546549e+00, 6.0000453451e+00]
-    logm2lim = [1.4770940442e+00, 1.4771484652e+00]
-    alim = [6.9991943608e-01, 7.0008056392e-01]
-    p0lim = [7.4995568044e+00, 7.5004431956e+00]
-    e0lim = [3.9997901137e-01, 4.0002098863e-01]
-    distlim = [1.9727323083e+00, 2.0272676917e+00]
-    cosqSlim = [8.6479203952e-01, 8.9037308426e-01]
-    phiSlim = [9.7750458220e-01, 1.0224954178e+00]
-    Phiphilim = [3.8232596200e-01, 4.1767403800e-01]
-    Phirlim = [4.9151222865e-01, 5.0848777135e-01]
+
+    # 3 sigma 
+    # check sampling_test/fisher.ipynb for prior ranges
+
+    # WIDER using diag of cov
+    logm1lim = [5.999755966003094, 6.000244033996906]
+    logm2lim = [1.4769870513061485, 1.4772554581331763]
+    alim = [0.6995637359288023, 0.7004362640711976]
+    p0lim = [7.497572969128289, 7.502427030871711]
+    e0lim = [0.39989407441630453, 0.4001059255836955]
+    distlim = [0.4671238045922167, 0.5328761954077833]
+    cosqSlim = [0.8175373164938913, 0.9376278072868542]
+    phiSlim = [0.8907980491383655, 1.1092019508616344]
+    Phiphilim = [0.2971011746225549, 0.5028988253774451]
+    Phirlim = [0.4374942669461721, 0.5625057330538279]
+
 
     transformed = np.zeros_like(u)
 
@@ -217,7 +223,7 @@ config = parismc.SamplerConfig(
     use_beta=True,                # Use beta correction for boundaries
     integral_num=int(1e5),        # MC samples for beta estimation
     gamma=500,                    # Covariance update frequency NOTE: changed from 100
-    exclude_scale_z=np.inf,       # No exclusion based on weights
+    exclude_scale_z=10,       # No exclusion based on weights
     use_pool=False,               # Set to True for multiprocessing
     n_pool=4                      # Number of processes (if use_pool=True)
 )
@@ -257,8 +263,8 @@ print('Done preparing LHS samples.')
 
 print('Running sampling...')
 sampler.run_sampling(
-    num_iterations=int(1e5), 
-    savepath='./paris_ffunc/',
+    num_iterations=int(5e5), 
+    savepath='./paris_ffunc3/',
     print_iter=100 # Print progress every n iterations
 )
 print('Done running sampling.')

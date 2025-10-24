@@ -2,7 +2,7 @@
 #PBS -q auto_free
 #PBS -o logs/paris_ffunc.out
 #PBS -e logs/paris_ffunc.err
-#PBS -N paris_likelihoodtest
+#PBS -N paris_ffunc
 #PBS -l walltime=24:00:00
 #PBS -l select=1:ncpus=4:mpiprocs=1:ompthreads=4:ngpus=1:mem=32gb
 
