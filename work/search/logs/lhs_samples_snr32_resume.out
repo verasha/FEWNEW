@@ -2601,3 +2601,23 @@ Evaluating 295000 remaining samples in 2950 batches of 100  (checkpoint every 10
   [440900/500000]  elapsed=73901s  rate=3.2/s  eta=18514s  finite=440900
   [441000/500000]  elapsed=73931s  rate=3.2/s  eta=18483s  finite=441000
   -> checkpoint saved: /scratch/e1498138/lhs/lhs_snr32_checkpoints/lhs_snr32_ckpt_441000.pkl
+  [441100/500000]  elapsed=73963s  rate=3.2/s  eta=18452s  finite=441100
+  [441200/500000]  elapsed=73993s  rate=3.2/s  eta=18420s  finite=441200
+  [441300/500000]  elapsed=74024s  rate=3.2/s  eta=18389s  finite=441300
+  [441400/500000]  elapsed=74057s  rate=3.2/s  eta=18358s  finite=441400
+  [441500/500000]  elapsed=74087s  rate=3.2/s  eta=18326s  finite=441500
+  [441600/500000]  elapsed=74119s  rate=3.2/s  eta=18295s  finite=441600
+  [441700/500000]  elapsed=74150s  rate=3.2/s  eta=18263s  finite=441700
+  [441800/500000]  elapsed=74182s  rate=3.2/s  eta=18232s  finite=441800
+  [441900/500000]  elapsed=74213s  rate=3.2/s  eta=18201s  finite=441900
+  [442000/500000]  elapsed=74244s  rate=3.2/s  eta=18169s  finite=442000
+  -> checkpoint saved: /scratch/e1498138/lhs/lhs_snr32_checkpoints/lhs_snr32_ckpt_442000.pkl
+  [442100/500000]  elapsed=74275s  rate=3.2/s  eta=18138s  finite=442100
+  [442200/500000]  elapsed=74306s  rate=3.2/s  eta=18107s  finite=442200
+  [442300/500000]  elapsed=74337s  rate=3.2/s  eta=18075s  finite=442300
+  [442400/500000]  elapsed=74369s  rate=3.2/s  eta=18044s  finite=442400
+  [442500/500000]  elapsed=74400s  rate=3.2/s  eta=18013s  finite=442500
+  [442600/500000]  elapsed=74431s  rate=3.2/s  eta=17981s  finite=442600
+  [442700/500000]  elapsed=74462s  rate=3.2/s  eta=17950s  finite=442700
+  [442800/500000]  elapsed=74493s  rate=3.2/s  eta=17918s  finite=442800
+  [442900/500000]  elapsed=74524s  rate=3.2/s  eta=17887s  finite=442900
