@@ -1,0 +1,171 @@
+Using dt = 10 seconds, T = 0.08333333333333333 years
+Initializing waveform generator...
+Creating GenerateEMRIWaveform class...
+Done initializing waveform generator.
+Creating GravWaveAnalysis class...
+Initializing loglike class...
+Done initializing loglike class.
+Calculating SNR...
+SNR calculated: 5.283339408229159
+Setting up log_density and prior functions...
+2 year sigmas: [8.47413325e-05 1.01378439e-04 3.49039352e-04 2.40285811e-03
+ 4.45624469e-05]
+Done setting up log-likelihood and prior.
+Setting up ParisMC sampler...
+Done setting up ParisMC sampler.
+Setting up initial covariance matrix...
+Done setting up initial covariance matrix.
+Initializing sampler...
+Done initializing sampler.
+Preparing LHS samples...
+Using external LHS samples at true parameters...
+External LHS points: [[0.5        0.5        0.53860827 0.5        0.5       ]]
+External LHS log densities: [52.83211884]
+Done preparing LHS samples.
+Running sampling...
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			Resource Usage on 2025-11-25 10:47:05.602384:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	JobId: 435262.stdct-mgmt-02
+	Project: personal-e1498138
+	Exit Status: 271
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	NCPUs: Requested(4), Used(4)
+	CPU Time Used: 01:56:28
+	Memory: Requested(32gb), Used(11833540kb)
+	Vmem Used: 23086036kb
+	Walltime: Requested(24:00:00), Used(00:30:39)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Execution Nodes Used: (GN-A40-006[1]:ncpus=4:ngpus=1:mem=33554432kb)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	No GPU-related information available for this job.
+Using dt = 10 seconds, T = 0.08333333333333333 years
+Initializing waveform generator...
+Creating GenerateEMRIWaveform class...
+Done initializing waveform generator.
+Creating GravWaveAnalysis class...
+Initializing loglike class...
+Done initializing loglike class.
+Calculating SNR...
+SNR calculated: 5.283339408229159
+Setting up log_density and prior functions...
+2 year sigmas: [8.47413325e-05 1.01378439e-04 3.49039352e-04 2.40285811e-03
+ 4.45624469e-05]
+Done setting up log-likelihood and prior.
+Setting up ParisMC sampler...
+Done setting up ParisMC sampler.
+Setting up initial covariance matrix...
+Done setting up initial covariance matrix.
+Initializing sampler...
+Done initializing sampler.
+Preparing LHS samples...
+Using external LHS samples at true parameters...
+External LHS points: [[0.5        0.5        0.53860827 0.5        0.5       ]]
+External LHS log densities: [52.83211884]
+Done preparing LHS samples.
+Running sampling...
+Early stopping at iter 30000: dlogZ=9.03104e-02 <= stop_dlogZ=1.00000e-01, logZ=30.50788
+Done running sampling.
+Job completed at Tue Nov 25 11:39:54 AM +08 2025
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			Resource Usage on 2025-11-25 11:39:54.767604:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	JobId: 435321.stdct-mgmt-02
+	Project: personal-e1498138
+	Exit Status: 0
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	NCPUs: Requested(4), Used(4)
+	CPU Time Used: 02:21:23
+	Memory: Requested(32gb), Used(11824316kb)
+	Vmem Used: 23078048kb
+	Walltime: Requested(24:00:00), Used(00:37:04)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Execution Nodes Used: (GN-A40-006[0]:ncpus=4:ngpus=1:mem=33554432kb)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	No GPU-related information available for this job.
+Using dt = 10 seconds, T = 0.08333333333333333 years
+Initializing waveform generator...
+Creating GenerateEMRIWaveform class...
+Done initializing waveform generator.
+Creating GravWaveAnalysis class...
+Initializing loglike class...
+Done initializing loglike class.
+Calculating SNR...
+SNR calculated: 5.283339408229159
+Setting up log_density and prior functions...
+2 year sigmas: [8.47413325e-05 1.01378439e-04 3.49039352e-04 2.40285811e-03
+ 4.45624469e-05]
+Done setting up log-likelihood and prior.
+Setting up ParisMC sampler...
+Done setting up ParisMC sampler.
+Setting up initial covariance matrix...
+Done setting up initial covariance matrix.
+Initializing sampler...
+Done initializing sampler.
+Preparing LHS samples...
+Using external LHS samples at true parameters...
+External LHS points: [[0.5        0.5        0.53860827 0.5        0.5       ]]
+External LHS log densities: [52.83211884]
+Done preparing LHS samples.
+Running sampling...
+Early stopping at iter 300000: dlogZ=9.50809e-02 <= stop_dlogZ=1.00000e-01, logZ=31.77420
+Done running sampling.
+Job completed at Tue Nov 25 07:51:57 PM +08 2025
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			Resource Usage on 2025-11-25 19:51:58.428543:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	JobId: 435425.stdct-mgmt-02
+	Project: personal-e1498138
+	Exit Status: 0
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	NCPUs: Requested(4), Used(4)
+	CPU Time Used: 29:23:08
+	Memory: Requested(32gb), Used(11823108kb)
+	Vmem Used: 23078048kb
+	Walltime: Requested(24:00:00), Used(07:24:11)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Execution Nodes Used: (GN-A40-006[0]:ncpus=4:ngpus=1:mem=33554432kb)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	No GPU-related information available for this job.
+Using dt = 10 seconds, T = 0.08333333333333333 years
+Initializing waveform generator...
+Creating GenerateEMRIWaveform class...
+Done initializing waveform generator.
+Creating GravWaveAnalysis class...
+Initializing loglike class...
+Done initializing loglike class.
+Calculating SNR...
+SNR calculated: 5.283339408229159
+Setting up log_density and prior functions...
+2 year sigmas: [8.47413325e-05 1.01378439e-04 3.49039352e-04 2.40285811e-03
+ 4.45624469e-05]
+Done setting up log-likelihood and prior.
+Setting up ParisMC sampler...
+Done setting up ParisMC sampler.
+Setting up initial covariance matrix...
+Done setting up initial covariance matrix.
+Initializing sampler...
+Done initializing sampler.
+Preparing LHS samples...
+Using external LHS samples at true parameters...
+External LHS points: [[0.5       0.5       0.7007007 0.5       0.5      ]]
+External LHS log densities: [5.28321188]
+Done preparing LHS samples.
+Running sampling...
+Job completed at Fri Dec  5 06:22:14 PM +08 2025
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			Resource Usage on 2025-12-05 18:22:15.698627:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	JobId: 446879.stdct-mgmt-02
+	Project: personal-e1498138
+	Exit Status: 0
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	NCPUs: Requested(4), Used(4)
+	CPU Time Used: 00:19:43
+	Memory: Requested(32gb), Used(11894452kb)
+	Vmem Used: 20605996kb
+	Walltime: Requested(24:00:00), Used(00:06:31)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	Execution Nodes Used: (GN-A40-006[1]:ncpus=4:ngpus=1:mem=33554432kb)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	No GPU-related information available for this job.

@@ -1,0 +1,16 @@
+dt=10s  T=0.25yr
+Building waveform generators...
+Initializing loglike...
+SNR = 5.942134448355127
+Evaluating 500000 remaining samples in 5000 batches of 100  (checkpoint every 10 batches)
+  [100/500000]  elapsed=32s  rate=3.1/s  eta=162169s  finite=100
+  [200/500000]  elapsed=65s  rate=3.1/s  eta=161335s  finite=200
+  [300/500000]  elapsed=96s  rate=3.1/s  eta=159193s  finite=300
+  [400/500000]  elapsed=127s  rate=3.2/s  eta=158546s  finite=400
+  [500/500000]  elapsed=159s  rate=3.2/s  eta=158556s  finite=500
+  [600/500000]  elapsed=191s  rate=3.1/s  eta=159069s  finite=600
+  [700/500000]  elapsed=223s  rate=3.1/s  eta=159175s  finite=700
+  [800/500000]  elapsed=255s  rate=3.1/s  eta=159087s  finite=800
+  [900/500000]  elapsed=286s  rate=3.1/s  eta=158871s  finite=900
+  [1000/500000]  elapsed=318s  rate=3.1/s  eta=158781s  finite=1000
+Job completed at Mon Mar  9 11:07:45 AM +08 2026

@@ -1,0 +1,20 @@
+#!/bin/bash
+#PBS -q auto_free
+#PBS -o logs/lhs_samples_snr32_resume.out
+#PBS -e logs/lhs_samples_snr32_resume.err
+#PBS -N lhs_resume
+#PBS -l walltime=48:00:00
+#PBS -l select=1:ncpus=4:mpiprocs=1:ompthreads=4:ngpus=1:mem=32gb
+
+# Change to the working directory
+cd $PBS_O_WORKDIR;
+
+mkdir -p logs
+
+source /scratch/e1498138/anaconda3/bin/activate fewsm
+
+export CUDA_VISIBLE_DEVICES=0
+
+python run_lhs_snr32.py --n-samples 500000 --resume
+
+echo "Job completed at $(date)"

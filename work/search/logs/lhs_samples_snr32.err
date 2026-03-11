@@ -1,0 +1,9 @@
+/nfs/home/svu/e1498138/localgit/FEWNEW/work/search/run_lhs_snr32.py:144: DeprecationWarning: Passing a seed or integer to random_state is deprecated and will raise an error in a future version. Please use seed parameter
+  sampling = LHS(xlimits=xlimits, random_state=args.seed)
+Traceback (most recent call last):
+  File "/nfs/home/svu/e1498138/localgit/FEWNEW/work/search/run_lhs_snr32.py", line 203, in <module>
+    with open(ckpt_path, "wb") as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: './lhs_snr32_checkpoints/lhs_snr32_ckpt_001000.pkl'
+/nfs/home/svu/e1498138/localgit/FEWNEW/work/search/run_lhs_snr32.py:145: DeprecationWarning: Passing a seed or integer to random_state is deprecated and will raise an error in a future version. Please use seed parameter
+  sampling = LHS(xlimits=xlimits, random_state=args.seed)
