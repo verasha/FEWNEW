@@ -1,9 +1,9 @@
-# few: FastEMRIWaveforms
+# emri_search
 
 [![Documentation Status](https://app.readthedocs.org/projects/fastemriwaveforms/badge/?version=latest)](https://fastemriwaveforms.readthedocs.io/en/latest/)
 [![DOI](https://zenodo.org/badge/223486766.svg)](https://doi.org/10.5281/zenodo.3969004)
 
-This package contains a highly modular framework for the rapid generation of accurate extreme-mass-ratio inspiral (EMRI) waveforms. FEW combines a variety of separately accessible modules to construct EMRI waveform models for both CPUs and GPUs.
+EMRI search pipeline built on top of FastEMRIWaveforms (FEW), providing one-stop functions for waveform generation, likelihood evaluation, and Bayesian parameter estimation of extreme-mass-ratio inspirals.
 
 * Generally, the modules fall into four categories: trajectory, amplitudes, summation, and utilities. Please see the [documentation](https://fastemriwaveforms.readthedocs.io/en/latest) for further information on these modules.
 * The code can be found on Github [here](https://github.com/BlackHolePerturbationToolkit/FastEMRIWaveforms).
