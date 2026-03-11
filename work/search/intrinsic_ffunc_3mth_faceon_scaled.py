@@ -259,7 +259,7 @@ init_cov = np.array([[ 3.23870086e+00,  3.31278471e-02, -3.15511720e-03,  7.8921
                      [-3.15511720e-03, -6.69111758e-02,  3.48459254e+00, -8.21470751e-03, -8.85111526e-02],
                      [ 7.89217076e-05,  9.53269837e-02, -8.21470751e-03,  3.23942821e+00, -6.08938380e-02],
                      [-3.28333834e-02, -4.55230554e-02, -8.85111526e-02, -6.08938380e-02,  4.03949351e+00]])
-init_cov_list = [init_cov for _ in range(n_seed)]
+init_cov_list = [np.linalg.inv(init_cov) for _ in range(n_seed)]
 
 print('Done setting up initial covariance matrix.')
 

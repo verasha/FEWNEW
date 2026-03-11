@@ -2621,3 +2621,16 @@ Evaluating 295000 remaining samples in 2950 batches of 100  (checkpoint every 10
   [442700/500000]  elapsed=74462s  rate=3.2/s  eta=17950s  finite=442700
   [442800/500000]  elapsed=74493s  rate=3.2/s  eta=17918s  finite=442800
   [442900/500000]  elapsed=74524s  rate=3.2/s  eta=17887s  finite=442900
+  [443000/500000]  elapsed=74555s  rate=3.2/s  eta=17856s  finite=443000
+  -> checkpoint saved: /scratch/e1498138/lhs/lhs_snr32_checkpoints/lhs_snr32_ckpt_443000.pkl
+  [443100/500000]  elapsed=74588s  rate=3.2/s  eta=17825s  finite=443100
+  [443200/500000]  elapsed=74620s  rate=3.2/s  eta=17794s  finite=443200
+  [443300/500000]  elapsed=74653s  rate=3.2/s  eta=17762s  finite=443300
+  [443400/500000]  elapsed=74685s  rate=3.2/s  eta=17731s  finite=443400
+  [443500/500000]  elapsed=74717s  rate=3.2/s  eta=17700s  finite=443500
+  [443600/500000]  elapsed=74749s  rate=3.2/s  eta=17669s  finite=443600
+  [443700/500000]  elapsed=74779s  rate=3.2/s  eta=17637s  finite=443700
+  [443800/500000]  elapsed=74810s  rate=3.2/s  eta=17606s  finite=443800
+  [443900/500000]  elapsed=74841s  rate=3.2/s  eta=17575s  finite=443900
+  [444000/500000]  elapsed=74872s  rate=3.2/s  eta=17543s  finite=444000
+  -> checkpoint saved: /scratch/e1498138/lhs/lhs_snr32_checkpoints/lhs_snr32_ckpt_444000.pkl
