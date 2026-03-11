@@ -181,3 +181,9 @@ src/few/CITATION.cff
 *.DS_Store
 
 memray*
+
+# Large binary/data files (exceed GitHub limits)
+*.h5
+work/**/*.pkl
+work/**/*.save
+work/**/sampler_state.pkl
