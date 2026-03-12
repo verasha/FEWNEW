@@ -6,7 +6,7 @@ import os
 
 # Add work directory to path
 sys.path.insert(0, '/nfs/home/svu/e1498138/localgit/FEWNEW/work/')
-import GWfuncs
+import localgit.FEWNEW.work.GWfuncs_backup2 as GWfuncs_backup2
 import loglike_timemax
 
 # Import from few
@@ -159,7 +159,7 @@ def plot_1d_fisher_scan(param_name, param_idx, param_range, params_star, param_t
     waveform_gen_comb, waveform_gen_sep = setup_waveform_generators(T=T, dt=dt)
 
     print("Creating GravWaveAnalysis...")
-    gwf = GWfuncs.GravWaveAnalysis(T, dt)
+    gwf = GWfuncs_backup2.GravWaveAnalysis(T, dt)
 
     print("Initializing loglike class...")
     # n-indexed mode selection parameters

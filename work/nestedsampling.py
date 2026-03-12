@@ -32,7 +32,7 @@ os.chdir('/nfs/home/svu/e1498138/localgit/FEWNEW/work/')
 # Add it to Python path
 sys.path.insert(0, '/nfs/home/svu/e1498138/localgit/FEWNEW/work/')
 
-import GWfuncs
+import localgit.FEWNEW.work.GWfuncs_backup2 as GWfuncs_backup2
 import loglike
 import modeselector
 import dynesty
@@ -97,7 +97,7 @@ waveform_gen = GenerateEMRIWaveform(
 
 print('Done initializing waveform generator.')
 print('Setting up GW functions and parameters...')
-gwf = GWfuncs.GravWaveAnalysis(T, dt)
+gwf = GWfuncs_backup2.GravWaveAnalysis(T, dt)
 
 #Generating data (true)
 

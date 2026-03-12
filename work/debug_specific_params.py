@@ -13,7 +13,7 @@ from few.amplitude.ampinterp2d import AmpInterpKerrEccEq
 from few.summation.interpolatedmodesum import InterpolatedModeSum 
 from few.utils.ylm import GetYlms
 from few.waveform import FastKerrEccentricEquatorialFlux
-import GWfuncs
+import localgit.FEWNEW.work.GWfuncs_backup2 as GWfuncs_backup2
 
 print("=== DEBUG: Specific Parameter Set Analysis ===")
 

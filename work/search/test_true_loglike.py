@@ -10,7 +10,7 @@ sys.path.insert(0, '/nfs/home/svu/e1498138/localgit/FEWNEW/work/')
 
 import few
 from few.waveform import GenerateEMRIWaveform, FastKerrEccentricEquatorialFlux
-import GWfuncs
+import localgit.FEWNEW.work.GWfuncs_backup2 as GWfuncs_backup2
 import loglikebasic
 
 # Configuration
@@ -74,7 +74,7 @@ params_star = (m1, m2, a, p0, e0, xI0, dist, qS, phiS, qK, phiK, Phi_phi0, Phi_t
 param_true = [np.log10(m1), np.log10(m2), a, p0, e0]
 
 print("Creating GWfuncs and loglike objects...")
-gwf = GWfuncs.GravWaveAnalysis(T, dt)
+gwf = GWfuncs_backup2.GravWaveAnalysis(T, dt)
 loglike_obj = loglikebasic.LogLike(params_star, waveform_gen_comb, gwf, M_init=5,
                                    verbose=True, waveform_gen_sep=waveform_gen_sep,
                                    noise_weighted=True)

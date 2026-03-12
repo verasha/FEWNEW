@@ -32,7 +32,7 @@ import sys
 os.chdir('/nfs/home/svu/e1498138/localgit/FEWNEW/work/')
 sys.path.insert(0, '/nfs/home/svu/e1498138/localgit/FEWNEW/work/')
 
-import GWfuncs
+import localgit.FEWNEW.work.GWfuncs_backup2 as GWfuncs_backup2
 import loglikegen
 import modeselector
 import parismc
@@ -116,7 +116,7 @@ waveform_gen_sep = GenerateEMRIWaveform(
 print('Done initializing waveform generator.')
 
 print("Creating GravWaveAnalysis class...")
-gwf = GWfuncs.GravWaveAnalysis(T, dt)
+gwf = GWfuncs_backup2.GravWaveAnalysis(T, dt)
 
 print("Initializing loglike class...")
 

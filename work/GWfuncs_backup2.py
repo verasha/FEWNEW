@@ -59,8 +59,7 @@ class GravWaveAnalysis:
         
         # Set FFT frequencies using the appropriate backend
         if self.N is not None and dt is not None:
-            self.fft_freqs = self.xp.fft.fftfreq(self.N, dt)
-            self.fft_freqs_rfft = self.xp.fft.rfftfreq(self.N, dt)
+            self.fft_freqs = self.xp.fft.rfftfreq(self.N, dt)
 
     def get_backend_info(self):
         """
@@ -164,36 +163,28 @@ class GravWaveAnalysis:
         wave_c = self.xp.vstack((wave.real, wave.imag))
         return self.xp.fft.rfft(wave_c, axis=1) * self.dt
 
-    def inner(self, h1f, h2f, return_complex=False):
+    def inner(self, h1f, h2f):
         """
         Compute the inner product of two gravitational waveforms.
 
         Parameters:
         h1f, h2f (numpy.ndarray or cupy.ndarray): Frequency domain waveforms.
-        return_complex (bool): If True, return complex inner product.
-                               If False, return real part only (default, backward compatible)
 
         Returns:
-        float or complex: Inner product of the two waveforms.
+        float: Inner product of the two waveforms.
         """
 
         df = 1/(self.N*self.dt)  # Frequency resolution
-
-        # Get sensitivity (using rfft frequencies for this method since h1f/h2f come from freq_wave which uses rfft)
-        Sn = get_sensitivity(self.fft_freqs_rfft[1:], sens_fn=CornishLISASens, return_type="PSD")
-        # Sn = LISA_Noise(self.fft_freqs_rfft[1:])
-
+        
+        # Get sensitivity 
+        Sn = get_sensitivity(self.fft_freqs[1:], sens_fn=CornishLISASens, return_type="PSD")
+        # Sn = LISA_Noise(self.fft_freqs[1:])  
+        
         # Compute the inner product using backend operations
         plus = self.xp.conj(h1f[0,1:]) @ (h2f[0,1:] / Sn)
         cross = self.xp.conj(h1f[1,1:]) @ (h2f[1,1:] / Sn)
 
-        inner_prod = 4*df*(plus+cross)
-
-        if return_complex:
-            return inner_prod
-        else:
-            # OLD behavior: return real part only
-            return self.xp.real(inner_prod)
+        return 4*df*self.xp.real(plus+cross)
 
     def SNR(self, hf):
         """
@@ -230,176 +221,52 @@ class GravWaveAnalysis:
     def Xstat(self, x, h):
         """
         Compute the standard detection statistic for gravitational wave data.
-
-        Returns |<x|h>| / sqrt(<h|h>)
         """
-
-        xf = self.freq_wave(x)
+        
+        xf = self.freq_wave(x) 
         hf = self.freq_wave(h)
+        
+        calc_inner = self.inner(xf, hf)
+        calc_SNR = self.xp.sqrt(self.inner(hf, hf))  
 
-        # Get COMPLEX inner product for phase maximization
-        calc_inner_complex = self.inner(xf, hf, return_complex=True)
-        calc_SNR = self.xp.sqrt(self.inner(hf, hf))
-
-        # NOTE: Phase-marginalized (maximizes over Phi_phi0, Phi_r0, etc)
-        return self.xp.abs(calc_inner_complex) / calc_SNR
-
-        # NOTE: Phase-dependent version
-        # calc_inner_real = self.inner(xf, hf, return_complex=False)
-        # return calc_inner_real / calc_SNR
-
-    def Xstat_timemax(self, x, h):
-        """
-        Compute time-and-phase-maximized detection statistic with PSD weighting.
-
-        Returns max_τ,φ |<x|h(τ,φ)>|_weighted / sqrt(<h|h>)
-
-        Should peak at SNR when x=h.
-        Uses FFT-based cross-correlation to efficiently maximize over all time shifts.
-
-        Parameters:
-        -----------
-        x : array
-            Time-domain data signal
-        h : array
-            Time-domain template waveform
-
-        Returns:
-        --------
-        float
-            Maximum correlation over time and phase shifts normalized by template SNR
-        """
-        # Time-maximized correlation
-        calc_inner_complex = self.inner_timemax(x, h)
-        calc_SNR = self.xp.sqrt(self.inner_timemax(h, h))
-
-        # Normalized detection statistic
-        return calc_inner_complex / calc_SNR
-
+        return calc_inner / calc_SNR
 
     def Xmstat(self, x, hm_arr, rho_modes):
         """
         Calculate X_m statistic for each mode
         """
         X_modes = self.xp.empty(len(hm_arr), dtype=self.xp.complex128)
-
+        
         # Get frequency domain of data once
         xf = self.freq_wave(x)
-
+        
         for idx, hm in enumerate(hm_arr):
             # Get frequency domain of mode template
             hmf = self.freq_wave(hm)
-
+            
             # Calculate inner product <x|hm>
             inner_product = self.inner(xf, hmf)
-
+            
             # X_m = <x|hm> / rho_m
             X_modes[idx] = inner_product / rho_modes[idx]
-
-        return X_modes
-
-    def Xmstat_timemax(self, x, hm_arr, rho_modes):
-        """
-        Calculate X_m statistic with time maximization for each mode
-
-        Parameters:
-        -----------
-        x : array
-            Time-domain data signal
-        hm_arr : list of arrays
-            List of time-domain mode waveforms
-        rho_modes : array
-            SNR values for each mode
-
-        Returns:
-        --------
-        array
-            X_m values with time maximization
-        """
-        X_modes = self.xp.empty(len(hm_arr), dtype=self.xp.float64)
-
-        for idx, hm in enumerate(hm_arr):
-            # Time-maximized correlation (now takes time-domain inputs)
-            inner_product = self.inner_timemax(x, hm)
-
-            # X_m = <x|hm>_max / rho_m
-            X_modes[idx] = inner_product / rho_modes[idx]
-
+        
         return X_modes
 
     def rhostat(self, h):
-        # optimal SNR
+        # optimal SNR 
         # assuming the h is still in time-domain
-
-        hf = self.freq_wave(h)
+        
+        hf = self.freq_wave(h) 
         calc_inner = self.inner(hf, hf)
-        return self.xp.sqrt(calc_inner)
-
-    def rhostat_timemax(self, h):
-        """
-        Compute time-maximized SNR.
-
-        Returns sqrt(max_τ,φ <h|h(τ,φ)>)
-
-        This is useful when you want SNR maximized over time shifts.
-
-        Parameters:
-        -----------
-        h : array
-            Time-domain waveform
-
-        Returns:
-        --------
-        float
-            Time-maximized SNR
-        """
-        # Time-maximized correlation with itself (now takes time-domain input)
-        calc_inner = self.inner_timemax(h, h)
-        return self.xp.sqrt(calc_inner)
-
-    def rhostat_modes(self, hm_arr):
+        return self.xp.sqrt(calc_inner) 
+    
+    def rhostat_modes(self, hm_arr): 
         rho_modes = self.xp.empty(len(hm_arr), dtype=self.xp.float64)
 
         for idx, hm in enumerate(hm_arr):
-            rho_modes[idx] = self.rhostat_timemax(hm)
-
+            rho_modes[idx] = self.rhostat(hm)
+        
         return self.xp.array(rho_modes)
-
-    def inner_timemax(self, h1, h2):
-        """
-        Find maximum noise-weighted correlation between two waveforms.
-
-        Uses FFT-based correlation with LISA noise weighting to find the maximum
-        correlation over all time shifts.
-
-        Parameters:
-        -----------
-        h1, h2 : array
-            Time-domain waveforms (complex arrays)
-
-        Returns:
-        --------
-        float
-            Maximum correlation value over all time shifts
-        """
-        # FFT with dt scaling
-        H1 = self.xp.fft.fft(h1) * self.dt
-        H2 = self.xp.fft.fft(h2) * self.dt
-
-        # Get PSD at full FFT frequencies (skip DC), using absolute value for negative frequencies
-        Sn = self.xp.asarray(get_sensitivity(self.xp.abs(self.fft_freqs[1:]), sens_fn=CornishLISASens, return_type="PSD"))
-
-        # Initialize Y with zeros
-        Y = self.xp.zeros_like(H1)
-
-        # Noise-weighted correlation (skip DC)
-        Y[1:] = H1[1:] * self.xp.conj(H2[1:]) / (0.5 * Sn)
-
-        # IFFT to time domain with proper normalization
-        S = self.xp.fft.ifft(Y) / self.dt
-
-        # Return maximum correlation
-        return self.xp.max(self.xp.abs(S))
     
     def calc_beta(self, rho_dom_M, rho_tot):
         """

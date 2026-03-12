@@ -31,7 +31,7 @@ os.chdir('/nfs/home/svu/e1498138/localgit/FEWNEW/work/')
 # Add it to Python path
 sys.path.insert(0, '/nfs/home/svu/e1498138/localgit/FEWNEW/work/')
 
-import GWfuncs
+import localgit.FEWNEW.work.GWfuncs_backup2 as GWfuncs_backup2
 import loglike
 import modeselector
 import parismc
@@ -118,7 +118,7 @@ param_true = [np.log10(m1), np.log10(m2), a, p0, e0, dist, np.cos(qS), phiS, Phi
 
 
 print('Setting up GWFuncs...')
-gwf = GWfuncs.GravWaveAnalysis(T, dt)
+gwf = GWfuncs_backup2.GravWaveAnalysis(T, dt)
 print('Done setting up GWFuncs.')
 
 print('Setting up log-likelihood and prior...')

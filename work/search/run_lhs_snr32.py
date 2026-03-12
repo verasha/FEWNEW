@@ -46,7 +46,7 @@ os.chdir('/nfs/home/svu/e1498138/localgit/FEWNEW/work/')
 sys.path.insert(0, '/nfs/home/svu/e1498138/localgit/FEWNEW/work/')
 
 import few
-import GWfuncs
+import localgit.FEWNEW.work.GWfuncs_backup2 as GWfuncs_backup2
 import loglike_timemax
 
 cfg_set = few.get_config_setter(reset=True)
@@ -78,7 +78,7 @@ waveform_gen_sep = GenerateEMRIWaveform(
     inspiral_kwargs=inspiral_kwargs, amplitude_kwargs=amplitude_kwargs,
     Ylm_kwargs=Ylm_kwargs, sum_kwargs=sum_kwargs_sep, use_gpu=use_gpu)
 
-gwf = GWfuncs.GravWaveAnalysis(T, dt)
+gwf = GWfuncs_backup2.GravWaveAnalysis(T, dt)
 
 # Source parameters
 m1, m2, a, p0, e0 = 1e6, 1e1, 0.7, 9, 0.4

@@ -6,7 +6,7 @@ import os
 
 # Add work directory to path
 sys.path.insert(0, '/nfs/home/svu/e1498138/localgit/FEWNEW/work/')
-import GWfuncs
+import localgit.FEWNEW.work.GWfuncs_backup2 as GWfuncs_backup2
 import loglikegen
 
 # Import from few
@@ -213,7 +213,7 @@ def plot_1d_comparison(param_name, param_idx, param_range, params_star, param_tr
     waveform_gen_comb, waveform_gen_sep = setup_waveform_generators(T=T, dt=dt)
 
     print("Creating GravWaveAnalysis...")
-    gwf = GWfuncs.GravWaveAnalysis(T, dt)
+    gwf = GWfuncs_backup2.GravWaveAnalysis(T, dt)
 
     # Default mode selection
     if mode_select is None:
