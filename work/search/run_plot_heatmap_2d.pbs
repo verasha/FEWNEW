@@ -1,0 +1,26 @@
+#!/bin/bash
+#PBS -q auto_free
+#PBS -o logs/plot_heatmap_2d.out
+#PBS -e logs/plot_heatmap_2d.err
+#PBS -N heatmap_2d
+#PBS -l walltime=04:00:00
+#PBS -l select=1:ncpus=4:mpiprocs=1:ompthreads=4:ngpus=1:mem=32gb
+
+cd $PBS_O_WORKDIR;
+
+mkdir -p logs plots
+
+source /scratch/e1498138/anaconda3/bin/activate fewsm
+
+export CUDA_VISIBLE_DEVICES=0
+
+# p0 vs e0 — three fix points
+python -u plot_heatmap_2d.py --dim-x 3 --dim-y 4 --n-grid 30 --outdir ./plots --fix-pt true
+python -u plot_heatmap_2d.py --dim-x 3 --dim-y 4 --n-grid 30 --outdir ./plots --fix-pt sec1
+python -u plot_heatmap_2d.py --dim-x 3 --dim-y 4 --n-grid 30 --outdir ./plots --fix-pt sec2
+
+# Uncomment for other pairs:
+# python -u plot_heatmap_2d.py --dim-x 2 --dim-y 3 --n-grid 30 --outdir ./plots --fix-pt true
+# python -u plot_heatmap_2d.py --dim-x 0 --dim-y 3 --n-grid 30 --outdir ./plots --fix-pt true
+
+echo "Job completed at $(date)"
