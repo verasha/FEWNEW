@@ -33,7 +33,7 @@ os.chdir('/nfs/home/svu/e1498138/localgit/FEWNEW/work/')
 sys.path.insert(0, '/nfs/home/svu/e1498138/localgit/FEWNEW/work/')
 
 import GWfuncs
-import loglike_timemax  # TIME-MAXIMIZED VERSION
+import loglike 
 # import modeselectoralt
 import parismc
 # import gc
@@ -139,7 +139,7 @@ ell = 2  # quadrupole only
 
 # NOTE: change verbose argument for debugging
 # Using n-indexed mode selection
-loglike_obj = loglike_timemax.LogLikeTimeMax(
+loglike_obj = loglike.LogLike(
     params_star,
     waveform_gen_comb,
     gwf,
@@ -157,7 +157,10 @@ data_snr = gwf.rhostat(data)
 print('SNR calculated:', data_snr)
 print("Setting up log_density and prior functions...")
 
-
+# REVERSE TEMP for annealing
+# supposed to be 1/10 if we're going with the right nomenclature 
+# so supposed to be reversetemp
+# temp = 10
 def log_density(params):
     params = np.asarray(params)
 
@@ -171,6 +174,7 @@ def log_density(params):
         m2 = 10**logm2
 
         try:
+            # NOTE: scaled by temp
             loglike = loglike_obj(np.array([m1, m2, a, p0, e0, xI0, dist, qS, phiS, qK, phiK, Phi_phi0, Phi_theta0, Phi_r0]))
         except Exception:
             loglike = -np.inf
@@ -209,7 +213,23 @@ def prior_transform(u):
     
     return transformed
 
-    
+def inverse_prior_transform(params):
+    logm1lim = [5.6, 6.4]
+    logm2lim = [0.8, 1.3]
+    alim = [0.3, 0.99]
+    p0lim = [8.0, 11.0]
+    e0lim = [0.2, 0.5]
+
+    params = np.asarray(params)
+    u = np.zeros_like(params)
+
+    u[:, 0] = (params[:, 0] - logm1lim[0]) / (logm1lim[1] - logm1lim[0])
+    u[:, 1] = (params[:, 1] - logm2lim[0]) / (logm2lim[1] - logm2lim[0])
+    u[:, 2] = (params[:, 2] - alim[0]) / (alim[1] - alim[0])
+    u[:, 3] = (params[:, 3] - p0lim[0]) / (p0lim[1] - p0lim[0])
+    u[:, 4] = (params[:, 4] - e0lim[0]) / (e0lim[1] - e0lim[0])
+
+    return u
 
 print('Done setting up log-likelihood and prior.')
 print('Setting up ParisMC sampler...')
@@ -235,10 +255,19 @@ sys.path.insert(0, '/nfs/home/svu/e1498138/localgit/FEWNEW/work/search')
 
 
 ndim = 5
-n_seed = 10
+n_seed = 1
 
-sigma = 1e-5
-init_cov_list = [sigma**2 * np.eye(ndim) for _ in range(n_seed)]
+inv_cov = np.array([[3.62484871e+228, 3.45121397e-085, 9.46630677e+218,
+                        8.05513508e+251, 1.27849492e-152],
+                    [1.09800080e+248, 2.64175605e+180, 2.44772976e+198,
+                        3.62479387e+228, 1.88464412e-008],
+                    [3.63073071e+228, 3.65588281e+233, 8.29496998e-154,
+                        6.39917445e-149, 1.06441859e+248],
+                    [1.50754432e+161, 1.94904204e+227, 3.10199063e+169,
+                        1.23859821e-259, 5.86037081e+135],
+                    [3.11778560e-152, 3.10199063e+169, 8.74800081e+183,
+                        7.67112743e+170, 4.91347535e+252]])
+init_cov_list = [np.linalg.inv(inv_cov) for _ in range(n_seed)]
 
 print('Done setting up initial covariance matrix.')
 
@@ -253,10 +282,19 @@ sampler = parismc.Sampler(
 )
 print('Done initializing sampler.')
 
-print('Preparing LHS samples...')
-sampler.prepare_lhs_samples(lhs_num=int(3e5), batch_size=10)
+# print('Preparing LHS samples...')
+# sampler.prepare_lhs_samples(lhs_num=int(1e5), batch_size=10)
 
-print('Done preparing LHS samples.')
+# print('Done preparing LHS samples.')
+
+print('Using external LHS samples at previous best fit point...')
+best_fit = [5.99924515, 1.00389791, 0.69519314, 9.02648957, 0.39784083]
+
+external_lhs_points = inverse_prior_transform(np.array([best_fit]))
+external_lhs_log_densities = log_density(prior_transform(external_lhs_points))
+print('External LHS points:', external_lhs_points)
+print('External LHS log densities:', external_lhs_log_densities)
+
 
 print('Running sampling...')
 def save_every_1000(sampler, i):
@@ -265,8 +303,10 @@ def save_every_1000(sampler, i):
 
 sampler.run_sampling(
     num_iterations=int(1e5),
-    savepath='./intrinsic_ffunc_3mth_snr32_run6',
+    savepath='./intrinsic_ffunc_3mth_snr32_run4_nt',
     print_iter=100, # Print progress every n iterations
     callback=save_every_1000,
+    external_lhs_points=external_lhs_points,
+    external_lhs_log_densities=external_lhs_log_densities
 )
 print('Done running sampling.')

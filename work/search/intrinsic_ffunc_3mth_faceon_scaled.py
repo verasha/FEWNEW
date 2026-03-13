@@ -157,7 +157,9 @@ data_snr = gwf.rhostat(data)
 print('SNR calculated:', data_snr)
 print("Setting up log_density and prior functions...")
 
-# TEMP for annealing
+# REVERSE TEMP for annealing
+# supposed to be 1/10 if we're going with the right nomenclature 
+# so supposed to be reversetemp
 temp = 10
 def log_density(params):
     params = np.asarray(params)
@@ -255,11 +257,11 @@ sys.path.insert(0, '/nfs/home/svu/e1498138/localgit/FEWNEW/work/search')
 ndim = 5
 n_seed = 1
 
-inv_cov = np.array([[ 3.23870086e+00,  3.31278471e-02, -3.15511720e-03,  7.89217076e-05, -3.28333834e-02],
-                     [ 3.31278471e-02,  3.80064037e+00, -6.69111758e-02,  9.53269837e-02, -4.55230554e-02],
-                     [-3.15511720e-03, -6.69111758e-02,  3.48459254e+00, -8.21470751e-03, -8.85111526e-02],
-                     [ 7.89217076e-05,  9.53269837e-02, -8.21470751e-03,  3.23942821e+00, -6.08938380e-02],
-                     [-3.28333834e-02, -4.55230554e-02, -8.85111526e-02, -6.08938380e-02,  4.03949351e+00]])
+inv_cov = np.array([[ 3.251413  ,  0.05288519,  0.11490405,  0.07587687, -0.04389412],
+                    [ 0.05288519,  3.22262592, -0.06941901,  0.03965189, -0.02770726],
+                    [ 0.11490405, -0.06941901,  3.61225496,  0.05267729,  0.06385206],
+                    [ 0.07587687,  0.03965189,  0.05267729,  3.96352483, -0.01188017],
+                    [-0.04389412, -0.02770726,  0.06385206, -0.01188017,  3.36756604]])
 init_cov_list = [np.linalg.inv(inv_cov)/temp for _ in range(n_seed)]
 
 print('Done setting up initial covariance matrix.')
@@ -281,7 +283,7 @@ print('Done initializing sampler.')
 # print('Done preparing LHS samples.')
 
 print('Using external LHS samples at previous best fit point...')
-best_fit = [5.97800849, 1.06132813, 0.59586799, 9.62228753, 0.36892448]
+best_fit = [5.93979891, 0.9842598 , 0.55618277, 9.82410481, 0.41788778]
 external_lhs_points = inverse_prior_transform(np.array([best_fit]))
 external_lhs_log_densities = log_density(prior_transform(external_lhs_points))
 print('External LHS points:', external_lhs_points)
@@ -295,7 +297,7 @@ def save_every_1000(sampler, i):
 
 sampler.run_sampling(
     num_iterations=int(1e5),
-    savepath='./intrinsic_ffunc_3mth_snr32_run3_resume',
+    savepath='./intrinsic_ffunc_3mth_snr32_run4_resume',
     print_iter=100, # Print progress every n iterations
     callback=save_every_1000,
     external_lhs_points=external_lhs_points,
